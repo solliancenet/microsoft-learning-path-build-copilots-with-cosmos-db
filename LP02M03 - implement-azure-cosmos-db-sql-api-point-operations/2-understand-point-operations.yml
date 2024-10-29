@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.wwl.implement-azure-cosmos-db-sql-api-point-operations.understand
+title: Understand point operations
+metadata:
+  title: Understand point operations
+  description: "Understand point operations"
+  ms.date: 10/22/2024
+  author: wwlpublish
+  ms.author: calopez
+  ms.topic: unit
+azureSandbox: false
+labModal: false
+durationInMinutes: 6
+content: |
+  [!include[](includes/2-understand-point-operations.md)]

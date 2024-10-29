@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.wwl.author-complex-queries-azure-cosmos-db-sql-api.implement-variables-queries
+title: Implement variables in queries
+metadata:
+  title: Implement variables in queries
+  description: "Implement variables in queries"
+  ms.date: 10/18/2022
+  author: wwlpublish
+  ms.author: calopez
+  ms.topic: unit
+azureSandbox: false
+labModal: false
+durationInMinutes: 4
+content: |
+  [!include[](includes/4-implement-variables-queries.md)]

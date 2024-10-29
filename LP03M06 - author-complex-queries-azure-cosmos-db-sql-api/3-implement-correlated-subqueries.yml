@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.wwl.author-complex-queries-azure-cosmos-db-sql-api.paginate-queries-results
+title: Implement correlated subqueries
+metadata:
+  title: Implement correlated subqueries
+  description: "Implement correlated subqueries"
+  ms.date: 10/18/2022
+  author: wwlpublish
+  ms.author: calopez
+  ms.topic: unit
+azureSandbox: false
+labModal: false
+durationInMinutes: 7
+content: |
+  [!include[](includes/3-implement-correlated-subqueries.md)]

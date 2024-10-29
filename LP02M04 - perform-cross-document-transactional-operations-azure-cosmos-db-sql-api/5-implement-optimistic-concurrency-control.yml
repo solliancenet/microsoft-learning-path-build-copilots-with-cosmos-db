@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.wwl.perform-cross-document-transactional-operations-azure-cosmos-db-sql-api.implement-optimistic-concurrency-control
+title: Implement optimistic concurrency control
+metadata:
+  title: Implement optimistic concurrency control
+  description: "Implement optimistic concurrency control"
+  ms.date: 10/17/2022
+  author: wwlpublish
+  ms.author: calopez
+  ms.topic: unit
+azureSandbox: false
+labModal: false
+durationInMinutes: 6
+content: |
+  [!include[](includes/5-implement-optimistic-concurrency-control.md)]
