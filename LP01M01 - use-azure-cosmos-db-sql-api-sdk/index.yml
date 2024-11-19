@@ -33,7 +33,6 @@ units:
 - learn.wwl.use-azure-cosmos-db-sql-api-sdk.understand-sdk
 - learn.wwl.use-azure-cosmos-db-sql-api-sdk.import-from-package-manager
 - learn.wwl.use-azure-cosmos-db-sql-api-sdk.connect-to-online-account
-- learn.wwl.use-azure-cosmos-db-sql-api-sdk.implement-client-singleton
 - learn.wwl.use-azure-cosmos-db-sql-api-sdk.configure-connectivity-mode
 - learn.wwl.use-azure-cosmos-db-sql-api-sdk.exercise-connect-to
 - learn.wwl.use-azure-cosmos-db-sql-api-sdk.knowledge-check

@@ -1,5 +1,6 @@
 ### YamlMime:ModuleUnit
-uid: learn.wwl.use-azure-cosmos-db-sql-api-sdk.configure-connectivity-mode
+uid: learn.wwl.use-azure-cosmos-db-sql-api-sd.5-configure-connectivity-mode
+
 title: Configure connectivity mode
 metadata:
   title: Configure connectivity mode
@@ -12,4 +13,4 @@ azureSandbox: false
 labModal: false
 durationInMinutes: 7
 content: |
-  [!include[](includes/6-configure-connectivity-mode.md)]
+  [!include[](includes/7-5-configure-connectivity-mode.md)]
