@@ -1,0 +1,38 @@
+### YamlMime:Module
+uid: learn.wwl.build-copilots-with-azure-cosmos-db-nosql
+metadata:
+  title: Author complex queries with the Azure Cosmos DB for NoSQL
+  description: "Create SQL queries for Azure Cosmos DB for NoSQL that uses subqueries or cross-products."
+  ms.date: 10/18/2022
+  author: wwlpublish
+  ms.author: calopez
+  ms.topic: module-standard-task-based
+  ms.service: azure-cosmos-db
+title: Author complex queries with the Azure Cosmos DB for NoSQL
+summary: Create SQL queries for Azure Cosmos DB for NoSQL that uses subqueries or cross-products.
+abstract: |
+  After completing this module, you'll be able to:
+  - Implement a correlated subquery
+  - Create a cross-product query
+prerequisites: |
+  Before starting this module, you should have experience of building cloud applications with Microsoft C# or a similar programming language.
+iconUrl: /training/achievements/azure-cosmos-db-author-complex-queries.svg
+levels:
+- intermediate
+roles:
+- developer
+products:
+- azure-cosmos-db
+subjects:
+- data-management
+units:
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.introduction
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.implement-correlated-subqueries
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.paginate-queries-results
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.implement-variables-queries
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.create-cross-product-queries
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.exercise-paginate-cross-product-query-results-sdk
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.knowledge-check
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.summary
+badge:
+  uid: learn.wwl.build-copilots-with-azure-cosmos-db-nosql.badge
