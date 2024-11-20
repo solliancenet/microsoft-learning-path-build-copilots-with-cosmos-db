@@ -1,0 +1,18 @@
+### YamlMime:ModuleUnit
+uid: learn.wwl.configure-azure-cosmos-db-sql-api-sdk.understand-query-performance-batch-operations
+
+title: Understand query performance and batch operations
+metadata:
+  title: Understand query performance and batch operations
+  description: "Understand query performance and batch operations"
+  ms.date: 10/17/2022
+  author: wwlpublish
+  ms.author: calopez
+  ms.topic: unit
+  ms.custom:
+    - devx-track-dotnet
+azureSandbox: false
+labModal: false
+durationInMinutes: 6
+content: |
+  [!include[](includes/4-understand-query-performance-batch-operations.md)]

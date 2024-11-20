@@ -18,6 +18,8 @@ docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
 
 The Azure Cosmos DB emulator uses the same APIs as the cloud service, so connecting to the emulator is not different from connecting to the cloud service. The emulator uses a single fixed account with a static authentication key that is the same across all instances
 
+::: zone pivot=".NET"
+
 First, the emulator's endpoint is ``https://localhost:<port>/`` using SSL with the default port set to 8081. In C# code, you can configure this endpoint as a string variable using this example line of code.
 
 ```csharp
@@ -38,3 +40,67 @@ Once those variables are set, create the **CosmosClient** like you typically wou
 ```csharp
 CosmosClient client = new (endpoint, key);
 ```
+
+::: zone-end
+
+::: zone pivot="Python"
+
+First, the emulator's endpoint is ``https://localhost:<port>/`` using SSL with the default port set to 8081. In Python code, you can configure this endpoint as a string variable using this example line of code.
+
+```Python
+endpoint = "https://localhost:8081/"
+```
+
+The emulator's key is a static well-known authentication key. The default value for this key is ``C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==``. In Python code, you can save this key as a variable using this example line of code.
+
+```Python
+key = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
+```
+
+> [!TIP]
+> You can start the emulator using the **/Key** option to generate a new key instead of using the default key.
+
+Once those variables are set, create the **CosmosClient** like you typically would for a cloud-based account.
+
+```python
+client = CosmosClient(endpoint, key)
+```
+
+::: zone-end
+
+::: zone pivot="JavaScript"
+
+First, the emulator's endpoint is ``https://127.0.0.1:<port>/`` using SSL with the default port set to 8081. In JavaScript code, you can configure this endpoint as a string variable using this example line of code.
+
+```javascript
+const endpoint = "https://127.0.0.1:8081/";
+```
+
+> [!NOTE]
+> When using the emulator, the endpoint is typically ``https://localhost:8081/``. However, sometimes Node.js applications attempt to convert the localhost address to an IPv6 address, causing an error such as "RestError: connect ECONNREFUSED ::1:8081". If you encounter this issue, use the IPv4 loopback address ``https://127.0.0.1:8081/``.
+
+The emulator's key is a static well-known authentication key. The default value for this key is ``C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==``. In JavaScript code, you can save this key as a variable using this example line of code.
+
+```javascript
+const key = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
+```
+
+> [!TIP]
+> You can start the emulator using the **/Key** option to generate a new key instead of using the default key.
+
+Once those variables are set, create the **CosmosClient** like you typically would for a cloud-based account.
+
+```javascript
+const client = new CosmosClient({ endpoint, key });
+```
+
+> [!WARNING]
+> If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](https://learn.microsoft.com/azure/cosmos-db/how-to-develop-emulator?tabs=windows%2Cjavascript&pivots=api-nosql#import-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
+>
+>
+> ```javascript
+> process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
+> ```
+>
+
+::: zone-end
