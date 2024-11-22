@@ -1,9 +1,9 @@
 ### YamlMime:ModuleUnit
-uid: learn.wwl.author-complex-queries-azure-cosmos-db-sql-api.introduction
+uid: learn.wwl.build-copilots-with-azure-cosmos-db-nosql.introduction
 title: Introduction
 metadata:
   title: Introduction
-  description: "Introduction"
+  description: "Introduction to building copilots with Python and Azure Cosmos DB for NoSQL."
   ms.date: 10/18/2022
   author: wwlpublish
   ms.author: calopez
