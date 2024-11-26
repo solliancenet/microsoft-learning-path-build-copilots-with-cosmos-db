@@ -57,14 +57,16 @@ class Product:
         self.ttl = ttl # Time to live
 
     def to_dict(self):
-        return {
+        product_dict = {
             "id": self.internal_id,  # Map internal_id to id
             "name": self.name,
             "categoryId": self.category_id,
             "price": self.price,
-            "tags": self.tags,
-            "ttl": self.ttl
+            "tags": self.tags
         }
+        if self.ttl is not None:
+            product_dict["ttl"] = self.ttl
+        return product_dict
 ```
 
 To work with this class after adding the **ttl** property, we can instantiate a new **Product** object and set the property value.
@@ -126,14 +128,17 @@ class Product {
     }
 
     toJSON() {
-        return {
+        const json = {
             id: this.internalId, // Map internalId to id
             name: this.name,
             categoryId: this.categoryId,
             price: this.price,
-            tags: this.tags,
-            ttl: this.ttl
+            tags: this.tags
         };
+        if (this.ttl !== null) {
+            json.ttl = this.ttl;
+        }
+        return json;
     }
 }
 ```
