@@ -17,7 +17,7 @@ abstract: |
   - Perform similarity searches using Azure Cosmos DB for NoSQL.
   - Integrate data and AI models using LangChain orchestration to create intelligent and adaptable copilots.
 prerequisites: |
-  Before starting this module, you should have experience of building cloud applications with Microsoft C# or a similar programming language.
+  Before starting this module, you should have a basic understanding of Python development, Azure Cosmos DB for NoSQL, working with AI models, and understand the concepts associated with retrieval augmented generated (RAG) patterns.
 iconUrl: /training/achievements/azure-cosmos-db-build-copilots.svg
 levels:
 - intermediate
