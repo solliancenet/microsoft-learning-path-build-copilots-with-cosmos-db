@@ -1,10 +1,10 @@
 ### YamlMime:ModuleUnit
-uid: learn.wwl.author-complex-queries-azure-cosmos-db-sql-api.summary
+uid: learn.wwl.build-copilots-with-azure-cosmos-db-nosql.summary
 title: Summary
 metadata:
   title: Summary
   description: "Summary"
-  ms.date: 10/18/2022
+  ms.date: 11/27/2024
   author: wwlpublish
   ms.author: calopez
   ms.topic: unit

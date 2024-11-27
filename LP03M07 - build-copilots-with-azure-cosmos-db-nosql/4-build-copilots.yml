@@ -1,10 +1,10 @@
 ### YamlMime:ModuleUnit
-uid: learn.wwl.author-complex-queries-azure-cosmos-db-sql-api.implement-variables-queries
-title: Implement variables in queries
+uid: learn.wwl.build-copilots-with-azure-cosmos-db-nosql.build-copilots
+title: Build copilots with Azure Cosmos DB NoSQL and Python
 metadata:
-  title: Implement variables in queries
-  description: "Implement variables in queries"
-  ms.date: 10/18/2022
+  title: Build copilots with Azure Cosmos DB NoSQL and Python
+  description: "Learn how to build copilots with Python and Azure Cosmos DB for NoSQL."
+  ms.date: 11/27/2024
   author: wwlpublish
   ms.author: calopez
   ms.topic: unit
@@ -12,4 +12,4 @@ azureSandbox: false
 labModal: false
 durationInMinutes: 4
 content: |
-  [!include[](includes/4-implement-variables-queries.md)]
+  [!include[](includes/4-build-copilots.md)]

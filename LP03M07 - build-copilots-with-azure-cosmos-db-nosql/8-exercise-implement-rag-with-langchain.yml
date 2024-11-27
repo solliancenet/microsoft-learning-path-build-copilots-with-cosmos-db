@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.wwl.build-copilots-with-azure-cosmos-db-nosql.exercise-implement-rag-with-langchain
+title: Exercise - Implement RAG with LangChain and Azure Cosmos DB for NoSQL Vector Search
+metadata:
+  title: Exercise - Implement RAG with LangChain and Azure Cosmos DB for NoSQL Vector Search
+  description: "Exercise - Implement RAG with LangChain and Azure Cosmos DB for NoSQL Vector Search."
+  ms.date: 11/27/2024
+  author: wwlpublish
+  ms.author: calopez
+  ms.topic: unit
+azureSandbox: false
+labModal: false
+durationInMinutes: 20
+content: |
+  [!include[](includes/8-exercise-implement-rag-with-langchain.md)]
