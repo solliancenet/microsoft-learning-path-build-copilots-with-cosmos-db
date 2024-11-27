@@ -50,3 +50,17 @@ Once enabled on your Azure Cosmos DB for NoSQL account, you can create a new con
 | flat | Stores vectors on the same index as other indexed properties. | 505 |
 | quantizedFlat | Quantizes (compresses) vectors before storing on the index. This can improve latency and throughput at the cost of a small amount of accuracy. | 4096 |
 | diskANN | Creates an index based on DiskANN for fast and efficient approximate search. | 4096 |
+
+## Perform vector search with queries using VectorDistance()
+
+After creating a container with a vector policy, and inserting vector data into that container, you can conduct vector searches using the `VectorDistance` system function. An example of a NoSQL query that projects the similarity score as the alias `SimilarityScore`, and sorts in order of most-similar to least-similar:
+
+```sql
+SELECT TOP 3 c.name, c.description, VectorDistance(c.embedding, [1,2,3]) AS SimilarityScore   
+FROM c  
+ORDER BY VectorDistance(c.embedding, [1,2,3])
+```
+
+> Important
+>
+> You should always use a `TOP N` clause in the `SELECT` statement of your queries. Without it, the vector search will attempt to return many more matches, resulting in the query costing more RUs and having higher latency than necessary.

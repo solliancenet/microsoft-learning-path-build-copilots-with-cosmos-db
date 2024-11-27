@@ -11,4 +11,4 @@ To set up the lab environment for this exercise, sign into your Azure subscripti
 
 Launch the exercise and follow the instructions.
 
-[![Button to launch exercise.](../media/launch-exercise.png)](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/python/instructions/07-enable-azure-cosmos-db-nosql-vector-search.html)
+[![Button to launch exercise.](../media/launch-exercise.png)](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/python/instructions/07-01-enable-azure-cosmos-db-nosql-vector-search.html)
