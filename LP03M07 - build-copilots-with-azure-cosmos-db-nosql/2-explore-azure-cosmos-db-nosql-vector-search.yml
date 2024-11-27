@@ -1,10 +1,10 @@
 ### YamlMime:ModuleUnit
 uid: learn.wwl.build-copilots-with-azure-cosmos-db-nosql.explore-azure-cosmos-db-nosql-vector-search
-title: Explore Azure Cosmos DB NoSQL Vector Search
+title: Explore the Vector Search feature of Azure Cosmos DB NoSQL
 metadata:
-  title: Explore Azure Cosmos DB NoSQL Vector Search
+  title: Explore the Vector Search feature of Azure Cosmos DB NoSQL
   description: "Explore the capabilities provided by the Azure Cosmos DB for NoSQL Vector Search feature."
-  ms.date: 11/21/2024
+  ms.date: 11/27/2024
   author: wwlpublish
   ms.author: calopez
   ms.topic: unit
