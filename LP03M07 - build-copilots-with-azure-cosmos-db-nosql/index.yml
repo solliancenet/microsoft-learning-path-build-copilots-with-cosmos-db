@@ -1,37 +1,43 @@
 ### YamlMime:Module
 uid: learn.wwl.build-copilots-with-azure-cosmos-db-nosql
 metadata:
-  title: Author complex queries with the Azure Cosmos DB for NoSQL
+  title: Build copilots with Python and Azure Cosmos DB for NoSQL
   description: "Create SQL queries for Azure Cosmos DB for NoSQL that uses subqueries or cross-products."
   ms.date: 10/18/2022
   author: wwlpublish
   ms.author: calopez
   ms.topic: module-standard-task-based
   ms.service: azure-cosmos-db
-title: Author complex queries with the Azure Cosmos DB for NoSQL
-summary: Create SQL queries for Azure Cosmos DB for NoSQL that uses subqueries or cross-products.
+title: Build copilots with Python and Azure Cosmos DB for NoSQL
+summary: Build advanced AI copilots with Python and Azure Cosmos DB for NoSQL.
 abstract: |
   After completing this module, you'll be able to:
-  - Implement a correlated subquery
-  - Create a cross-product query
+  - Build a copilot capable of interacting with private data using Python and Azure Cosmos DB for NoSQL.
+  - Efficiently retrieve and store vectors in Azure Cosmos DB for NoSQL.
+  - Perform similarity searches using Azure Cosmos DB for NoSQL.
+  - Integrate data and AI models using LangChain orchestration to create intelligent and adaptable copilots.
 prerequisites: |
   Before starting this module, you should have experience of building cloud applications with Microsoft C# or a similar programming language.
-iconUrl: /training/achievements/azure-cosmos-db-author-complex-queries.svg
+iconUrl: /training/achievements/azure-cosmos-db-build-copilots.svg
 levels:
 - intermediate
 roles:
 - developer
 products:
 - azure-cosmos-db
+- azure-openai
 subjects:
-- data-management
+- artificial-intelligence
+- app-development
+- databases
 units:
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.introduction
-- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.implement-correlated-subqueries
-- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.paginate-queries-results
-- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.implement-variables-queries
-- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.create-cross-product-queries
-- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.exercise-paginate-cross-product-query-results-sdk
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.explore-azure-cosmos-db-nosql-vector-search
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.exercise-enable-azure-cosmos-db-nosql-vector-search
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.build-copilots
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.exercise-build-copilot
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.implement-langchain-orchestration
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.exercise-integrate-langchain-orchestration
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.knowledge-check
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.summary
 badge:
