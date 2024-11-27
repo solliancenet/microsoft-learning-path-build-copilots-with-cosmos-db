@@ -20,28 +20,28 @@ from openai import AzureOpenAI
 
 # Use Microsoft Entra ID RBAC authentication
 token_provider = get_bearer_token_provider(
-    DefaultAzureCredential(),
-    "https://cognitiveservices.azure.com/.default"
+ DefaultAzureCredential(),
+    "https://cognitiveservices.azure.com/.default"
 )
 
 # Instantiate an Azure OpenAI client
 client = AzureOpenAI(
-    api_version = AZURE_OPENAI_API_VERSION,
-    azure_endpoint = AZURE_OPENAI_ENDPOINT,
-    azure_ad_token_provider = token_provider
+    api_version = AZURE_OPENAI_API_VERSION,
+    azure_endpoint = AZURE_OPENAI_ENDPOINT,
+    azure_ad_token_provider = token_provider
 )
 
 # Generate embeddings for input text
 response = client.embeddings.create(
-    input = "Build copilots with Python and Azure Cosmos DB for NoSQL",
-    model = "text-embedding-3-large"
+    input = "Build copilots with Python and Azure Cosmos DB for NoSQL",
+    model = "text-embedding-3-large"
 )
 
 # Retrieve the generated embedding
 embedding = response.data[0].embedding
 ```
 
-The dimensionality of the created vectors is dictated by the model used to generate the embeddings. Knowing the number of dimensions produced by the model is crucial to defining a container vector policy in Azure Cosmos DB for NoSQL, as well as selecting an appropriate vector indexing policy. In the above example, the `text-embedding-3-large` model was used, which, by default, created vectors containing 3072 dimensions. When defining a container vector policy, as described below, you would need to specify that number in the **Dimensions** property. Likewise, you would need to choose an index type that supports the number of dimensions in use.
+The dimensionality of the created vectors is dictated by the model used to generate the embeddings. Knowing the number of dimensions the model produces is crucial when defining a container vector policy in Azure Cosmos DB for NoSQL. It also plays a role in selecting an appropriate vector indexing policy. In the above example, the `text-embedding-3-large` model was used, which, by default, created vectors containing 3072 dimensions. When defining a container vector policy, you must specify that number in the **Dimensions** property. Likewise, you need to choose an index type that supports the number of dimensions used.
 
 Once created, the embeddings can be stored in a vector database, such as Azure Cosmos DB for NoSQL.
 
