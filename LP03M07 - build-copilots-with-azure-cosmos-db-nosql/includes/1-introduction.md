@@ -1,6 +1,6 @@
-AI-powered copilots are transformative tools with the potential to revolutionize productivity and decision-making. These intelligent assistants, powered by machine learning and data analytics, offer contextual insights and automated support. They can streamline complex workflows and, importantly, adapt to user requirements, making them indispensable in the ever-evolving world of AI.
+AI-powered copilots are transformative tools with the potential to revolutionize productivity and decision-making. These intelligent assistants, powered by artificial intelligence and data analytics, offer contextual insights and automated support. They can streamline complex workflows and, importantly, adapt to user requirements, making them indispensable in the ever-evolving world of AI.
 
-This learning module delves into the intricacies of building AI copilots using Python, a versatile and widely-used programming language, and Azure Cosmos DB for NoSQL, a globally distributed, multi-model database service provided by Microsoft. Integrating Python and Azure Cosmos DB for NoSQL enables developers to create scalable and adaptive copilots, offering a powerful combination of flexibility and robustness.
+This learning module delves into the intricacies of building copilots using Python, a versatile and widely-used programming language, and Azure Cosmos DB for NoSQL, a globally distributed, multi-model database service provided by Microsoft. Integrating Python and Azure Cosmos DB for NoSQL enables developers to create scalable and adaptive copilots, offering a powerful combination of flexibility and robustness.
 
 ## What are copilots?
 
@@ -8,7 +8,7 @@ Copilots are advanced AI assistants designed to augment human capabilities and i
 
 ## Why Python?
 
-Python's simplicity and readability make it a popular programming language for AI and machine learning projects. Its extensive libraries and frameworks, such as LangChain, PyTorch, and Scikit-learn, provide robust tools for developing sophisticated copilots. Python's versatility allows developers to iterate and experiment quickly, making it the top choice for building AI copilots.
+Python's simplicity and readability make it a popular programming language for AI and machine learning projects. Its extensive libraries and frameworks, such as LangChain, PyTorch, and Scikit-learn, provide robust tools for developing sophisticated copilots. Python's versatility allows developers to iterate and experiment quickly, making it a top choice for building AI applications.
 
 ## Azure Cosmos DB for NoSQL
 
