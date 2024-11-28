@@ -34,6 +34,8 @@ units:
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.introduction
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.explore-azure-cosmos-db-nosql-vector-search
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.exercise-enable-azure-cosmos-db-nosql-vector-search
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.understand-embeddings-in-vector-search
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.exercise-generate-and-store-vectors
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.build-copilots
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.exercise-build-copilot
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.integrate-vector-search

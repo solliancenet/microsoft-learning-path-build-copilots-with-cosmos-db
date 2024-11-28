@@ -12,4 +12,4 @@ azureSandbox: false
 labModal: false
 durationInMinutes: 20
 content: |
-  [!include[](includes/8-exercise-implement-rag-with-langchain.md)]
+  [!include[](includes/10-exercise-implement-rag-with-langchain.md)]

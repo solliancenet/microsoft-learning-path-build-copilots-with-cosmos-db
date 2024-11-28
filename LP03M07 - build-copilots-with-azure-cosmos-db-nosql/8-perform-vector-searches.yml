@@ -1,0 +1,16 @@
+### YamlMime:ModuleUnit
+uid: learn.wwl.build-copilots-with-azure-cosmos-db-nosql.perform-vector-search
+title: 'Perform vector searches using Azure Cosmos DB for NoSQL from a copilot'
+metadata:
+  title: 'Perform vector searches using Azure Cosmos DB for NoSQL from a copilot'
+  description: "Learn how to perform vector searches using Azure Cosmos DB for NoSQL from a copilot."
+  ms.date: 11/27/2024
+  author: wwlpublish
+  ms.author: calopez
+  ms.topic: unit
+azureSandbox: false
+labId: 107580
+labModal: true
+durationInMinutes: 4
+content: |
+  [!include[](includes/8-perform-vector-search.md)]
