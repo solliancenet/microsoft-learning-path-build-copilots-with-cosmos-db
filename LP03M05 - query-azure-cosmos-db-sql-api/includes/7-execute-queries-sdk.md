@@ -45,7 +45,7 @@ using (FeedIterator<Product> feedIterator = this.Container.GetItemQueryIterator<
 }
 ```
 
-::: end-zone
+::: zone-end
 
 ::: zone pivot="Python"
 
@@ -79,7 +79,7 @@ for item in container.query_items(
     print(f"{item['id']}\t{item['name']}\t{item['price']}")
 ```
 
-::: end-zone
+::: zone-end
 
 ::: zone pivot="JavaScript"
 
@@ -142,4 +142,4 @@ while (iterator.hasMoreResults()) {
 }
 ```
 
-::: end-zone
+::: zone-end
