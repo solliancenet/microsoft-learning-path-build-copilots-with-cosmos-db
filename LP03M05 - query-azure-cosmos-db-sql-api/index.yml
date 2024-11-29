@@ -16,7 +16,7 @@ abstract: |
   - Project query results
   - Use built-in functions in a query
 prerequisites: |
-  Before starting this module, you should have experience of building cloud applications with Microsoft C# or a similar programming language.
+  Before starting this module, you should have experience in building cloud applications with Microsoft C#, Python, JavaScript, or a similar programming language.
 iconUrl: /training/achievements/azure-cosmos-db-api-query.svg
 levels:
 - intermediate
