@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.wwl.build-copilots-with-azure-cosmos-db-nosql.generate-embeddings
+title: Generate embeddings using Azure OpenAI Service
+metadata:
+  title: Generate embeddings using Azure OpenAI Service
+  description: "Review how to use Azure OpenAI Service to generate vector embeddings."
+  ms.date: 11/27/2024
+  author: wwlpublish
+  ms.author: calopez
+  ms.topic: unit
+azureSandbox: false
+labModal: false
+durationInMinutes: 2
+content: |
+  [!include[](includes/4-generate-embeddings.md)]
