@@ -1,0 +1,15 @@
+### YamlMime:ModuleUnit
+uid: learn.wwl.build-copilots-with-azure-cosmos-db-nosql.understand-embeddings-in-vector-search
+title: Understand the role of embeddings in vector search
+metadata:
+  title: Understand the role of embeddings in vector search
+  description: "Understand the role of embeddings in vector search."
+  ms.date: 11/27/2024
+  author: wwlpublish
+  ms.author: calopez
+  ms.topic: unit
+azureSandbox: false
+labModal: false
+durationInMinutes: 10
+content: |
+  [!include[](includes/4-understand-embeddings-in-vector-search.md)]

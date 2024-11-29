@@ -3,7 +3,7 @@ uid: learn.wwl.build-copilots-with-azure-cosmos-db-nosql.integrate-langchain-orc
 title: Integrate LangChain orchestration to improve efficiency and code maintainability in a Python copilot
 metadata:
   title: Integrate LangChain orchestration to improve efficiency and code maintainability in a Python copilot
-  description: "Learn how to integrate LangChain orchestration to improve efficiency and code maintainability in a Python copilot."
+  description: "Review techniques for integrating LangChain orchestration to improve efficiency and code maintainability in a Python copilot."
   ms.date: 11/27/2024
   author: wwlpublish
   ms.author: calopez
@@ -12,4 +12,4 @@ azureSandbox: false
 labModal: false
 durationInMinutes: 5
 content: |
-  [!include[](includes/7-integrate-langchain-orchestration.md)]
+  [!include[](includes/9-integrate-langchain-orchestration.md)]
