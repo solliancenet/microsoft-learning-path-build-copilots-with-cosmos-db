@@ -46,17 +46,13 @@ Integrating Azure OpenAI and Azure Cosmos DB for NoSQL to generate and store vec
 
 1. **Azure Function with Cosmos DB Change Feed Trigger**
 
-    An effective pattern for generating embeddings in near real-time as data is inserted into Cosmos DB involves using an Azure Function in combination with the Cosmos DB change feed. The function's Cosmos DB trigger is invoked when documents are inserted or updated in the container. The function makes calls to an Azure OpenAI embedding model to create vectors, updates the documents with these embeddings, and writes them back into Cosmos DB. This approach ensures real-time processing and immediate availability of vector embeddings for subsequent searches.
+    An effective pattern for generating embeddings as data is inserted into Cosmos DB involves using an Azure Function in combination with the Cosmos DB change feed. The function's Cosmos DB trigger is invoked when documents are inserted or updated in the container. The function calls an Azure OpenAI embedding model to create vectors, updates the documents with these embeddings, and writes them back into Cosmos DB. This approach ensures real-time processing and immediate availability of vector embeddings for subsequent searches.
 
 2. **Batch Processing with Azure Data Factory**
 
-    Batch processing can be an efficient approach for bulk data operations on documents, whether they already exist in a Cosmos DB container or reside in another data store. You can use Azure Data Factory to orchestrate the process of generating vector embeddings. Data Factory can extract data from its source, send it to Azure OpenAI for embedding generation, and then write the enriched data into Cosmos DB. This method is particularly useful for initial data loading or periodic updates where real-time processing is not critical.
+    Batch processing can be an efficient approach for bulk data operations on documents, whether they already exist in a Cosmos DB container or reside in another data store. You can use Azure Data Factory to orchestrate the process of generating vector embeddings. Data Factory can extract data from its source, send it to Azure OpenAI for embedding generation, and then write the enriched data into Cosmos DB. This method is beneficial for initial data loading or periodic updates where real-time processing is not critical.
 
-3. **Event-Driven Architecture with Azure Event Grid**
-
-    Using an event-driven architecture, you can leverage Azure Event Grid to handle vector embedding generation. Event Grid can listen for changes in Cosmos DB and trigger downstream services, such as Azure Functions or Logic Apps, to generate vector embeddings using Azure OpenAI. This method provides a scalable and flexible way to handle embedding generation in response to data changes.
-
-4. **Microservices Architecture**
+3. **Microservices Architecture**
 
     A microservices architecture can provide a solution that offers more granular control of the processes involved. Embedding generation can be encapsulated within a dedicated microservice. This service interacts with Azure OpenAI and Cosmos DB, generating vector embeddings as needed. Other services can call this microservice whenever they need to update or retrieve embeddings, ensuring a modular and maintainable system design.
 
