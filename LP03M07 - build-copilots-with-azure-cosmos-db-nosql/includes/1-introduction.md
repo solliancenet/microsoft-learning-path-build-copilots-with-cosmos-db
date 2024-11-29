@@ -6,9 +6,9 @@ This learning module delves into the intricacies of building copilots using Pyth
 
 Copilots are advanced AI assistants designed to augment human capabilities and improve productivity by providing intelligent, context-aware support, automating repetitive tasks, and enhancing decision-making processes. For instance, an AI copilot can assist in code review and suggest improvements in software development. In customer service, it can handle routine queries, freeing up human agents for more complex issues. In data analysis, it can identify patterns and trends in large datasets. AI copilots can be employed in diverse fields such as these, and many more.
 
-## Why Python?
+## Why use Python?
 
-Python's simplicity and readability make it a popular programming language for AI and machine learning projects. Its extensive libraries and frameworks, such as LangChain, PyTorch, and Scikit-learn, provide robust tools for developing sophisticated copilots. Python's versatility allows developers to iterate and experiment quickly, making it a top choice for building AI applications.
+Python's simplicity and readability make it a popular programming language for AI and machine learning projects. Its extensive libraries and frameworks, such as LangChain, FastAPI, and many others, provide robust tools for developing sophisticated copilots. Python's versatility allows developers to iterate and experiment quickly, making it a top choice for building AI applications.
 
 ## Azure Cosmos DB for NoSQL
 
