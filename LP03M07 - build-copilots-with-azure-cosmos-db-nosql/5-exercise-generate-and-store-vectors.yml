@@ -10,6 +10,6 @@ metadata:
   ms.topic: unit
 azureSandbox: false
 labModal: false
-durationInMinutes: 25
+durationInMinutes: 20
 content: |
   [!include[](includes/5-exercise-generate-and-store-vectors.md)]
