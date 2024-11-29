@@ -28,6 +28,8 @@ And here is an example result:
 }
 ```
 
+::: zone pivot=".NET"
+
 While this result is acceptable, your dev team needs this result mapped to this C# object and does not want to write extra code to accomplish this task.
 
 ```csharp
@@ -46,6 +48,48 @@ public class ProductAdvertisement
 
 > [!NOTE]
 > For the purposes of this exercise, you can ignore casing. The JSON parser will properly handle converting between camel and pascal casing.
+
+::: zone-end
+
+::: zone pivot="Python"
+
+While this result is acceptable, your Python team needs this result mapped to this Python class and does not want to write extra code to accomplish this task.
+
+```python
+class ProductAdvertisement:
+    def __init__(self, name, category, scanner_data):
+        self.name = name
+        self.category = category
+        self.scanner_data = scanner_data
+
+class ScannerData:
+    def __init__(self, price):
+        self.price = price
+```
+
+::: zone-end
+
+::: zone pivot="JavaScript"
+
+While this result is acceptable, your JavaScript team needs this result mapped to this JavaScript object and does not want to write extra code to accomplish this task.
+
+```javascript
+class ProductAdvertisement {
+    constructor(name, category, scannerData) {
+        this.name = name;
+        this.category = category;
+        this.scannerData = scannerData;
+    }
+}
+
+class ScannerData {
+    constructor(price) {
+        this.price = price;
+    }
+}
+```
+
+::: zone-end
 
 The first change that could be made is to use a SQL alias to change the **categoryName** property to **category**. This change is accomplished by adding an ``AS`` keyword to the existing query:
 
@@ -155,6 +199,8 @@ FROM
     products p
 ```
 
+::: zone pivot=".NET"
+
 Let’s consider another scenario. If your .NET developers wanted to consume this list of category names, they would need to create a C# wrapper class to consume this list:
 
 ```csharp
@@ -165,6 +211,38 @@ public class CategoryReader
 
 // Developers read this as List<CategoryReader>
 ```
+
+::: zone-end
+
+::: zone pivot="Python"
+
+Let’s consider another scenario. If your Python developers wanted to consume this list of category names, they would need to create a Python wrapper class to consume this list:
+
+```python
+class CategoryReader:
+    def __init__(self, category_name):
+        self.category_name = category_name
+
+# Developers read this as List[CategoryReader]
+```
+
+::: zone-end
+
+::: zone pivot="JavaScript"
+
+Let’s consider another scenario. If your JavaScript developers wanted to consume this list of category names, they would need to create a JavaScript wrapper class to consume this list:
+
+```javascript
+class CategoryReader {
+    constructor(categoryName) {
+        this.categoryName = categoryName;
+    }
+}
+
+// Developers read this as List<CategoryReader>
+```
+
+::: zone-end
 
 This extra step is both needless and unnecessary. It can quickly become cumbersome as you will need to do this multiple times for multiple types in your container[s]. But, if you have a query that returns an object with only a single property, you can use the ``VALUE`` keyword to flatten the result set to an array of a simple type.
 
@@ -186,9 +264,29 @@ FROM
 ...
 ```
 
+::: zone pivot=".NET"
+
 ```csharp
 // Developers read this as List<string>
 ```
+
+::: zone-end
+
+::: zone pivot="Python"
+
+```python
+# Developers read this as List[str]
+```
+
+::: zone-end
+
+::: zone pivot="JavaScript"
+
+```javascript
+// Developers read this as List<string>
+```
+
+::: zone-end
 
 The ``VALUE`` keyword can even be used on its own without the ``DISTINCT`` keyword:
 
