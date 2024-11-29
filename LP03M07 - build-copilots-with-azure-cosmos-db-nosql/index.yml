@@ -32,13 +32,13 @@ subjects:
 - databases
 units:
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.introduction
-- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.explore-azure-cosmos-db-nosql-vector-search
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.configure-vector-search-storage-for-azure-cosmos-db-nosql
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.exercise-enable-azure-cosmos-db-nosql-vector-search
-- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.understand-embeddings-in-vector-search
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.generate-embeddings
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.exercise-generate-and-store-vectors
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.build-copilots
+- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.perform-vector-searches
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.exercise-build-copilot
-- learn.wwl.build-copilots-with-azure-cosmos-db-nosql.integrate-vector-search
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.integrate-langchain-orchestration
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.exercise-implement-rag-with-langchain
 - learn.wwl.build-copilots-with-azure-cosmos-db-nosql.knowledge-check
