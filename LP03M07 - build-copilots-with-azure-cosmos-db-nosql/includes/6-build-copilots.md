@@ -2,7 +2,7 @@ AI copilots, the next generation of intelligent assistants, are redefining produ
 
 ## Configure a Python virtual environment
 
-Virtual environments in Python are critical for maintaining a clean and organized development environment, offering numerous benefits that can significantly enhance your coding experience. They allow each project to have its own set of dependencies, isolated from others, which prevents conflicts and ensures a consistent development workflow. This isolation is particularly useful when deploying projects to production, as it ensures that the exact versions of dependencies used during development are maintained, reducing the risk of unexpected bugs and incompatibilities. Furthermore, virtual environments make it easier to collaborate with other developers by providing a consistent setup across different machines and development stages. By leveraging virtual environments, you can easily manage package versions, avoid dependency clashes, and ensure your projects run smoothly. This best practice is essential for a stable and dependable coding environment, making your development process more efficient and less prone to issues.
+Virtual environments in Python are critical for maintaining a clean and organized development environment, offering numerous benefits that can significantly enhance your coding experience. They allow each project to have its own set of dependencies, isolated from others, which prevents conflicts and ensures a consistent development workflow. This isolation is beneficial when deploying projects to production, as it ensures that the exact versions of dependencies used during development are maintained, reducing the risk of unexpected bugs and incompatibilities. Furthermore, virtual environments make it easier to collaborate with other developers by providing a consistent setup across different machines and development stages. By leveraging virtual environments, you can easily manage package versions, avoid dependency clashes, and ensure your projects run smoothly. This best practice is essential for a stable and dependable coding environment, making your development process more efficient and less prone to issues.
 
 Creating a Python virtual environment can be easily accomplished using a command similar to the following, which creates a virtual environment named `.venv` in the directory in which the command is run:
 
@@ -44,7 +44,7 @@ pip install -r requirements.txt
 
 Utilizing Microsoft Entra ID's Role-Based Access Control (RBAC) for authenticating against Azure services like Azure OpenAI and Azure Cosmos DB presents several key benefits over key-based methods. Entra ID RBAC enhances security through precise access controls tailored to user roles, effectively reducing unauthorized access risks. It also streamlines user management, enabling administrators to dynamically assign and modify permissions without the hassle of distributing and maintaining cryptographic keys. Furthermore, this approach enhances compliance and auditability by aligning with organizational policies and facilitating comprehensive access monitoring and review. Entra ID RBAC makes a more efficient and scalable solution for leveraging Azure services by streamlining secure access management.
 
-The following Python code snippet demonstrates how to authenticate and configure a client for interacting with Azure OpenAI services using Microsoft Entra ID RBAC (role-based access control) authentication.
+The following code snippet demonstrates authenticating and configuring a client for interacting with Azure OpenAI services using Microsoft Entra ID RBAC (role-based access control) authentication.
 
 ```python
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
@@ -67,11 +67,11 @@ The `token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https
 
 ## Copilot architecture
 
-Using an architecture with separate frontend and backend layers provides significant extensibility, allowing for the seamless integration of additional functionalities over time. Once the initial copilot is developed, incorporating new features, such as LangChain orchestration, into the APIs becomes straightforward.
+TODO: Talk about the architecture, splitting UI and backend APIs... Maybe talk about how being able to swap out code (thinking addition of LangChain orchestration here)
 
 ![A high-level copilot architecture diagram, showing a UI developed in Python using Streamlit, a backend API written in Python, and interactions with Azure Cosmos DB and Azure OpenAI.](../media/copilot-high-level-architecture-diagram.png)
 
-This modular design enables developers to enhance the backend with advanced capabilities without disrupting the existing front end. For instance, LangChain can be added to handle complex workflows and chain multiple tasks, boosting the copilot's functionality. This flexibility ensures the system remains scalable and adaptable, ready to incorporate future advancements and efficiently meet evolving user needs.
+The architecture of using separate frontend and backend layers provides significant extensibility, allowing for the seamless integration of additional functionalities over time. Once the initial copilot is developed, incorporating new features, such as LangChain orchestration, into the APIs becomes straightforward. This modular design enables developers to enhance the backend with advanced capabilities without disrupting the existing front end. For instance, LangChain can be added to handle complex workflows and chain multiple tasks, boosting the copilot's functionality. This flexibility ensures the system remains scalable and adaptable, ready to incorporate future advancements and efficiently meet evolving user needs.
 
 ## Create a UI with Streamlit
 
@@ -108,7 +108,7 @@ def main():
 
 ## Build a backend API with Python and FastAPI
 
-FastAPI is a modern web framework for building APIs with Python, which is particularly well-suited for creating robust backend APIs. When developing a copilot UI with Streamlit, FastAPI can serve as the powerful backend engine that handles interactions with Azure services like Azure OpenAI and Cosmos DB. By leveraging FastAPI's efficient request handling and ability to integrate seamlessly with asynchronous Python code, developers can quickly set up endpoints that facilitate communication between the Streamlit front end and Azure's services. This setup ensures that user queries to the copilot are processed smoothly, allowing real-time responses and efficient data management. FastAPI's simplicity and high performance make it an excellent choice for building the backend infrastructure needed to support advanced AI-driven copilots.
+FastAPI is a modern framework for developing APIs with Python, which is particularly well-suited for creating robust backend APIs. When developing a copilot UI with Streamlit, FastAPI can serve as the powerful backend engine for handling interactions with Azure services like Azure OpenAI and Cosmos DB. Using FastAPI's efficient request handling, you can quickly build endpoints that enable communication between the Streamlit front end and Azure's services. This setup ensures that user queries to the copilot are processed smoothly, allowing real-time responses and efficient data management. FastAPI's simplicity and high performance make it an excellent choice for building the backend infrastructure needed to support advanced AI-driven copilots.
 
 ```pyPythonrom fastapi import FastAPI
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
