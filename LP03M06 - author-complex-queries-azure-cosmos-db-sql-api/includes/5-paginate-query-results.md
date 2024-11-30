@@ -88,21 +88,13 @@ const options = {
 const iterator = container.items.query(query, options);
 ```
 
-The iterator provides a `fetchNext` method to retrieve the next page of results. Use a loop to fetch all pages while handling individual items:
+The `iterator.getAsyncIterator` method returns an async iterator that can be used to fetch the `for await...of` loop to retrieve each page of results. This loop automatically handles the asynchronous iteration over the pages:
 
 ```javascript
-let hasMoreResults = true;
-
-while (hasMoreResults) {
-    const { resources, continuationToken } = await iterator.fetchNext();
-
-    // Handle each item in the current page
-    resources.forEach((product) => {
-        console.log(`[${product.id}]	${product.name.padEnd(35)}	${product.price.toFixed(2)}`);
+for await (const page of iterator.getAsyncIterator()) {
+    page.resources.forEach(product => {
+        console.log(`[${product.id}] ${product.name} $${product.price.toFixed(2)}`);
     });
-
-    // Check if there are more pages to fetch
-    hasMoreResults = continuationToken !== undefined;
 }
 ```
 
