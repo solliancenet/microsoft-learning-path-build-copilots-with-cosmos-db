@@ -36,16 +36,6 @@ The above example shows a NoSQL query that projects the similarity score as the 
 Implementing vector search from Python code for a copilot would look similar to:
 
 ```python
-# Function for generating embeddings using Azure OpenAI's text-embedding-3-small model
-def generate_embeddings(text: str):
- client = AzureOpenAI(
-        api_version = AZURE_OPENAI_API_VERSION,
-        azure_endpoint = AZURE_OPENAI_ENDPOINT,
-        azure_ad_token_provider = token_provider
- )
- response = client.embeddings.create(input = text, model = "text-embedding-3-small")
-    return response.data[0].embedding
-
 # Create a Cosmos DB client
 cosmos_client = CosmosClient(url=AZURE_COSMOSDB_ENDPOINT, credential=credential)
 # Load the database
@@ -53,15 +43,39 @@ database = cosmos_client.get_database_client(DATABASE_NAME)
 # Retrieve the container
 container = database.get_container_client(CONTAINER_NAME)
 
+# Function for generating embeddings using Azure OpenAI's text-embedding-3-small model
+def generate_embeddings(text: str):
+    client = AzureOpenAI(
+            api_version = AZURE_OPENAI_API_VERSION,
+            azure_endpoint = AZURE_OPENAI_ENDPOINT,
+            azure_ad_token_provider = token_provider
+    )
+    response = client.embeddings.create(input = text, model = "text-embedding-3-small")
+    return response.data[0].embedding
+
+def vector_search(query_embedding: list, num_results: int = 3, similarity_score: float = 0.25):
+    """Search for similar product vectors in Azure Cosmos DB"""
+    results = container.query_items(
+        query = """
+        SELECT TOP @num_results p.name, p.description, p.sku, p.price, p.discount, p.sale_price, VectorDistance(p.embedding, @query_embedding) AS similarity_score
+        FROM Products p
+        WHERE VectorDistance(p.embedding, @query_embedding) > @similarity_score
+        ORDER BY VectorDistance(p.embedding, @query_embedding)
+        """,
+        parameters = [
+            {"name": "@query_embedding", "value": query_embedding},
+            {"name": "@num_results", "value": num_results},
+            {"name": "@similarity_score", "value": similarity_score}
+        ],
+        enable_cross_partition_query = True
+    )
+    results = list(results)
+    formatted_results = [{'similarity_score': result.pop('similarity_score'), 'product': result} for result in results]
+    return formatted_results
+
 # Get embeddings for search query text
 query_embedding = generate_embeddings(query_text)
 
-# Query for similar items
-for item in container.query_items( 
-    query='SELECT TOP 5 c.name, c.description, VectorDistance(c.contentVector, @embedding) AS SimilarityScore FROM c ORDER BY VectorDistance(c.contentVector, @embedding)',
-    parameters=[
- {"name": "@embedding", "value": query_embedding}
- ],
-    enable_cross_partition_query=True):
-    print(json.dumps(item, indent=True))
+# Perform a vector search
+results = vector_search(query_embedding, 3, 0.5)
 ```
