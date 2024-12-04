@@ -67,11 +67,11 @@ The `token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https
 
 ## Copilot architecture
 
-TODO: Talk about the architecture, splitting UI and backend APIs... Maybe talk about how being able to swap out code (thinking addition of LangChain orchestration here)
+The architecture of using separate frontend and backend layers provides significant extensibility, allowing for the seamless integration of additional functionalities over time. Once the initial copilot is developed, incorporating new features, such as LangChain orchestration, into the APIs becomes straightforward.
 
 ![A high-level copilot architecture diagram, showing a UI developed in Python using Streamlit, a backend API written in Python, and interactions with Azure Cosmos DB and Azure OpenAI.](../media/copilot-high-level-architecture-diagram.png)
 
-The architecture of using separate frontend and backend layers provides significant extensibility, allowing for the seamless integration of additional functionalities over time. Once the initial copilot is developed, incorporating new features, such as LangChain orchestration, into the APIs becomes straightforward. This modular design enables developers to enhance the backend with advanced capabilities without disrupting the existing front end. For instance, LangChain can be added to handle complex workflows and chain multiple tasks, boosting the copilot's functionality. This flexibility ensures the system remains scalable and adaptable, ready to incorporate future advancements and efficiently meet evolving user needs.
+This modular design enables developers to enhance the backend with advanced capabilities without disrupting the existing front end. For instance, LangChain can be added to handle complex workflows and chain multiple tasks, boosting the copilot's functionality. This flexibility ensures the system remains scalable and adaptable, ready to incorporate future advancements and efficiently meet evolving user needs.
 
 ## Create a UI with Streamlit
 
@@ -84,33 +84,64 @@ import requests
 
 st.set_page_config(page_title="Cosmic Works Copilot", layout="wide")
 
-def send_message_to_copilot(message):
-    """Send a message to the Copilot's backend chat endpoint."""
- api_endpoint = <backend-api-endpoint>
- request = {"message": message}
- response = requests.post(f"{api_endpoint}/chat", json=request, timeout=60)
-    return response.text
+def send_message_to_copilot(message: str, chat_history: list = []) -> str:
+    """Send a message to the Copilot chat endpoint."""
+    try:
+        api_endpoint = "http://localhost:8000"
+        request = {"message": message, "chat_history": chat_history}
+        response = requests.post(f"{api_endpoint}/chat", json=request, timeout=60)
+        print('response:', response.content)
+        return response.json()
+    except Exception as e:
+        st.error(f"An error occurred: {e}")
+        return ""
 
 def main():
-    # Respond to user input
-    if prompt := st.chat_input("How I can help you today?"):
-        with st.spinner("Awaiting the Copilot's response to your question..."):
-            # Display user message in chat message container
- st.chat_message("user").markdown(prompt)
+    """Main function for the Cosmic Works Product Management Copilot UI."""
 
-            # Send user message to Copilot and get response
- response = send_message_to_copilot(prompt)
+    st.write(
+        """
+        # Cosmic Works Product Management Copilot
+    
+        Welcome to Cosmic Works Product Management Copilot, a tool for managing and finding bicycle-related products in the Cosmic Works system.
+    
+        **Ask the copilot to apply or remove a discount on a category of products or to find products.**
+        """
+    )
 
-            # Display assistant response in chat message container
-            with st.chat_message("assistant"):
- st.markdown(response)
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+
+    # Display message from the history on app rerun.
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+
+    # React to user input
+    if prompt := st.chat_input("What can I help you with today?"):
+        with st.spinner("Awaiting the Copilot's response to your question..."):
+            # Display user message in chat message container
+            with st.chat_message("user"):
+                st.markdown(prompt)
+            
+            # Send user message to Copilot and get response
+            response = send_message_to_copilot(prompt, st.session_state.messages)            
+
+            # Display assistant response in chat message container
+            with st.chat_message("assistant"):
+                st.markdown(response)
+            
+            # Add the current user message and assistant response messages to chat history
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            st.session_state.messages.append({"role": "assistant", "content": response})
 ```
 
 ## Build a backend API with Python and FastAPI
 
-FastAPI is a modern framework for developing APIs with Python, which is particularly well-suited for creating robust backend APIs. When developing a copilot UI with Streamlit, FastAPI can serve as the powerful backend engine for handling interactions with Azure services like Azure OpenAI and Cosmos DB. Using FastAPI's efficient request handling, you can quickly build endpoints that enable communication between the Streamlit front end and Azure's services. This setup ensures that user queries to the copilot are processed smoothly, allowing real-time responses and efficient data management. FastAPI's simplicity and high performance make it an excellent choice for building the backend infrastructure needed to support advanced AI-driven copilots.
+FastAPI is a modern framework for developing APIs with Python, which is particularly well-suited for creating robust backend APIs. When designing a copilot UI with Streamlit, FastAPI can serve as the powerful backend engine for handling interactions with Azure services like Azure OpenAI and Cosmos DB. Using FastAPI's efficient request handling, you can quickly build endpoints that enable communication between the Streamlit front end and Azure's services. This setup ensures that user queries to the copilot are processed smoothly, allowing real-time responses and efficient data management. FastAPI's simplicity and high performance make it an excellent choice for building the backend infrastructure needed to support advanced AI-driven copilots.
 
-```pyPythonrom fastapi import FastAPI
+```python
+from fastapi import FastAPI
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 from openai import AzureOpenAI
 
@@ -118,8 +149,8 @@ app = FastAPI()
 
 # Enable Microsoft Entra ID RBAC authentication
 token_provider = get_bearer_token_provider(
- DefaultAzureCredential(),
-    "https://cognitiveservices.azure.com/.default"
+    DefaultAzureCredential(),
+    "https://cognitiveservices.azure.com/.default"
 )
 
 client = AzureOpenAI(
@@ -130,10 +161,175 @@ client = AzureOpenAI(
 
 @app.get("/chat")
 async def root(message: str, deployment_name: str = "gpt-4o"):
- messages = [{"role": "user", "content": message}]
- completion = client.chat.completions.create(
+    messages = [{"role": "user", "content": message}]
+    completion = client.chat.completions.create(
         model=deployment_name,
         messages=messages,
- )
+    )
     return completion
+```
+
+## Leverage private data through function calling
+
+Function calling in Azure OpenAI allows the seamless integration of external APIs or tools directly into your model’s output. When the model detects a relevant request, it constructs a JSON object with the necessary parameters, which you then execute. The result is returned to the model, enabling it to deliver a comprehensive final response enriched with external data.
+
+When using function calling, there are several steps you need to perform in code. First, you must create a function that will be called to perform an action. This method is a regular Python function. For example, the following function, `apply_discount`, accepts a discount amount, such as 0.1 for 10%, and a product category and will apply that discount amount to every product matching that category:
+
+```python
+def apply_discount(discount: float, product_category: str) -> str:
+    """Apply a discount to products in the specified category."""
+    results = container.query_items(
+        query = """
+        SELECT * FROM Products p WHERE CONTAINS(LOWER(p.category_name), LOWER(@product_category))
+        """,
+        parameters = [
+            {"name": "@product_category", "value": product_category}
+        ],
+        enable_cross_partition_query = True
+    )
+
+    # Apply the discount to the products
+    for item in results:
+        item['discount'] = discount
+        item['sale_price'] = item['price'] * (1 - discount) if discount > 0 else item['price']
+        container.upsert_item(item)
+
+    return f"A {discount}% discount was successfully applied to {product_category}." if discount > 0 else f"Discounts on {product_category} removed successfully."
+```
+
+Next, you must provide a JSON-formatted function definition that the LLM will use to understand how to interact with the function.
+
+```json
+{
+   "type": "function",
+   "function": {
+         "name": "apply_discount",
+         "description": "Apply a discount to products in the specified category",
+         "parameters": {
+            "type": "object",
+            "properties": {
+               "discount": {"type": "number", "description": "The percent discount to apply."},
+               "product_category": {"type": "string", "description": "The category of products to which the discount should be applied."}
+            },
+            "required": ["discount", "product_category"]
+         }
+   }
+}
+```
+
+The function definition must be added to an array of `tools` that can be passed into the LLM. It will contain definitions for all functions you want to make available to your models. For example, the following `tools` array contains definitions for two functions, `apply_discount` and `get_category_names`.
+
+```python
+# Define function calling tools
+tools = [
+   {
+      "type": "function",
+      "function": {
+            "name": "apply_discount",
+            "description": "Apply a discount to products in the specified category",
+            "parameters": {
+               "type": "object",
+               "properties": {
+                  "discount": {"type": "number", "description": "The percent discount to apply."},
+                  "product_category": {"type": "string", "description": "The category of products to which the discount should be applied."}
+               },
+               "required": ["discount", "product_category"]
+            }
+      }
+   },
+   {
+      "type": "function",
+      "function": {
+            "name": "get_category_names",
+            "description": "Retrieves the names of all product categories"
+      }
+   }
+]
+```
+
+When using function calling with Azure OpenAI, you must make two calls to the LLM. The first allows the LLM to determine what "tools" to use, and the second generates a completion using a prompt enriched with output from the function calls.
+
+The first call requires you to provide the Azure OpenAI client with the tools array and then capture the tool outputs in the response from that call:
+
+```python
+# First API call, providing the model to the defined functions
+response = aoai_client.chat.completions.create(
+   model = COMPLETION_DEPLOYMENT_NAME,
+   messages = messages,
+   tools = tools,
+   tool_choice = "auto"
+)
+
+# Process the model's response
+response_message = response.choices[0].message
+messages.append(response_message)
+```
+
+You must then use the requested function calls to "handle" the response, where you make the calls to the functions requested by the LLM. This handler lets you call the functions and capture their output so it can be written into the conversation and used by the LLM on the next API call.
+
+```python
+# Handle function call outputs
+if response_message.tool_calls:
+   for call in response_message.tool_calls:
+      if call.function.name == "apply_discount":
+            func_response = apply_discount(**json.loads(call.function.arguments))
+            messages.append(
+               {
+                  "role": "tool",
+                  "tool_call_id": call.id,
+                  "name": call.function.name,
+                  "content": func_response
+               }
+            )
+      elif call.function.name == "get_category_names":
+            func_response = get_category_names()
+            messages.append(
+               {
+                  "role": "tool",
+                  "tool_call_id": call.id,
+                  "name": call.function.name,
+                  "content": json.dumps(func_response)
+               }
+            )
+else:
+   print("No function calls were made by the model.")
+```
+
+Finally, you make the second call to the LLM, passing in a `messages` collection enriched with outputs from your function calls.
+
+```python
+# Second API call, asking the model to generate a response
+final_response = aoai_client.chat.completions.create(
+   model = COMPLETION_DEPLOYMENT_NAME,
+   messages = messages
+)
+
+# Output the completion response
+print(final_response.choices[0].message.content)
+```
+
+## Use prompt engineering to provide a persona to your copilot
+
+Prompt engineering is a crucial technique in artificial intelligence and natural language processing. It guides AI models in generating desired outputs by crafting specific, well-structured inputs (prompts) that steer the AI's responses toward achieving accurate and relevant results.
+
+Effective prompt engineering requires understanding the AI model's capabilities and limitations, as well as the nuances of language. By providing clear instructions, context, and examples within the prompt, developers can influence the AI to produce high-quality content, solve complex problems, or perform specific tasks. This approach enhances the AI's ability to comprehend and respond to various queries, making interactions more useful and engaging.
+
+When building a copilot, prompt engineering enables you to define a "persona" for your assistant. The persona instructs the LLM about interacting with copilot users, describing how to handle inputs and create outputs. Creating a persona is accomplished using a system prompt that you add to the collection of messages used by the Azure OpenAI client and the underlying language model.
+
+```python
+# Define the system prompt that contains the assistant's persona.
+system_prompt = """
+You are an intelligent copilot for Cosmic Works designed to help users manage and find bicycle-related products.
+You are helpful, friendly, and knowledgeable, but can only answer questions about Cosmic Works products.
+If asked to apply a discount:
+    - Apply the specified discount to all products in the specified category. If the user did not provide you with a discount percentage and a product category, prompt them for the details you need to apply a discount.
+    - Discount amounts should be specified as a decimal value (e.g., 0.1 for 10% off).
+If asked to remove discounts from a category:
+    - Remove any discounts applied to products in the specified category by setting the discount value to 0.
+When asked to provide a list of products, you should:
+    - Provide at least 3 candidate products unless the user asks for more or less, then use that number. Always include each product's name, description, price, and SKU. If the product has a discount, include it as a percentage and the associated sale price.
+"""
+
+# Provide the copilot with a persona using the system prompt.
+messages = [{ "role": "system", "content": system_prompt }]
 ```
