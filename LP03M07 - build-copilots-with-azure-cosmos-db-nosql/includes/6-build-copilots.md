@@ -23,7 +23,7 @@ Once created, you can activate the virtual environment by selecting the appropri
 
 After activating the virtual environment, any required Python libraries can be installed using the `pip install` command. Typically, required libraries and their versions are maintained in a `requirements.txt` file. This file allows versions to be specified and retained within the project, ensuring all libraries and dependencies are maintained between environments. These files store dependencies in the following format:
 
-```python
+```ini
 azure-cosmos==4.9.0
 azure-identity==1.19.0
 fastapi==0.115.5
