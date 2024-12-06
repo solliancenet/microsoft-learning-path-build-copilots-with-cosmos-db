@@ -52,7 +52,7 @@ from openai import AzureOpenAI
 
 # Enable Microsoft Entra ID RBAC authentication
 token_provider = get_bearer_token_provider(
- DefaultAzureCredential(),
+    DefaultAzureCredential(),
     "https://cognitiveservices.azure.com/.default"
 )
 
@@ -176,23 +176,27 @@ Function calling in Azure OpenAI allows the seamless integration of external API
 When using function calling, there are several steps you need to perform in code. First, you must create a function that will be called to perform an action. This method is a regular Python function. For example, the following function, `apply_discount`, accepts a discount amount, such as 0.1 for 10%, and a product category and will apply that discount amount to every product matching that category:
 
 ```python
-def apply_discount(discount: float, product_category: str) -> str:
+async def apply_discount(discount: float, product_category: str) -> str:
     """Apply a discount to products in the specified category."""
-    results = container.query_items(
+    # Load the database
+    database = cosmos_client.get_database_client(DATABASE_NAME)
+    # Retrieve the container
+    container = database.get_container_client(CONTAINER_NAME)
+
+    query_results = container.query_items(
         query = """
-        SELECT * FROM Products p WHERE CONTAINS(LOWER(p.category_name), LOWER(@product_category))
+        SELECT * FROM Products p WHERE LOWER(p.category_name) = LOWER(@product_category)
         """,
         parameters = [
             {"name": "@product_category", "value": product_category}
-        ],
-        enable_cross_partition_query = True
+        ]
     )
 
     # Apply the discount to the products
-    for item in results:
+    async for item in query_results:
         item['discount'] = discount
         item['sale_price'] = item['price'] * (1 - discount) if discount > 0 else item['price']
-        container.upsert_item(item)
+        await container.upsert_item(item)
 
     return f"A {discount}% discount was successfully applied to {product_category}." if discount > 0 else f"Discounts on {product_category} removed successfully."
 ```

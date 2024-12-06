@@ -27,11 +27,11 @@ Once the Vector Search feature is enabled on your Azure Cosmos DB for NoSQL acco
 
 > &#128221; The vector search feature is currently not supported on the existing containers, so you need to create a new container and specify the container-level vector embedding policy and the vector indexing policy at the time of container creation.
 
-The following information is included in the contained vector policy:
+The following information is included in the container vector policy:
 
 - `path`: The path of the property containing the vector embeddings.
 - `datatype`: The type of the elements in the vector. The default is `Float32`.
-- `dimensions`: This is the number of dimensions in or length of each vector and will be driven by the model used to create embeddings (defaults to 1536).
+- `dimensions`: This is the number of dimensions in or length of each vector and will be driven by the model used to create embeddings.
 - `distanceFunction`: The technique used to compute distance or similarity between vectors. The available options are Euclidean (default), cosine, and dot product.
 
 In vector search, distance functions determine how similar or different vectors are within a multidimensional space. Popular methods include Euclidean distance, cosine similarity, and Manhattan distance, each offering unique ways to compare the vectors.

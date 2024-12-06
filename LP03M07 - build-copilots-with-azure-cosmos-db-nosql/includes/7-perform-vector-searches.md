@@ -2,7 +2,11 @@ Integrating the vector search capabilities of Azure Cosmos DB for NoSQL into a P
 
 ## What is vector search?
 
-Vector search is a technique that allows items to be found based on their data characteristics instead of exact matches on a specific property or field. Instead of requiring exact matches, vector search enables you to identify matches based on their vector representations. This technique is advantageous when performing similarity searches and is particularly valuable in applications that require searching for information within large blocks of text. It plays a critical role in the implementation of the retrieval augmented generation (RAG) pattern frequently used by AI copilots by enabling secure and efficient integration of proprietary data into large language model (LLM) responses, ensuring that AI copilots can provide precise, domain-specific answers while maintaining the confidentiality and integrity of sensitive information.
+Vector search is a technique that allows items to be found based on their data characteristics instead of exact matches on a specific property or field. Instead of requiring exact matches, vector search enables you to identify matches based on their vector representations. This technique is advantageous when performing similarity searches and is particularly valuable in applications that require searching for information within large blocks of text.
+
+![Flow diagram for performing vector search, showing an incoming message being vectorized and compared against a vector store, then being added to an LLM prompt for the generation of a completion response.](vector-search.png)
+
+It plays a critical role in the implementation of the retrieval augmented generation (RAG) pattern frequently used by AI copilots by enabling secure and efficient integration of proprietary data into large language model (LLM) responses, ensuring that AI copilots can provide precise, domain-specific answers while maintaining the confidentiality and integrity of sensitive information.
 
 ## Understand the steps involved in vector search
 
@@ -29,9 +33,7 @@ ORDER BY VectorDistance(c.embedding, [1,2,3])
 
 The above example shows a NoSQL query that projects the similarity score as the alias `SimilarityScore` and sorts it from most-similar to least-similar.
 
-> Important
->
-> You should always use a `TOP N` clause in `SELECT` queries when performing vector searches. Without it, the vector search will attempt to return many more matches, resulting in the query costing more RUs and having higher latency than necessary.
+> &#10071; You should always use a `TOP N` clause in `SELECT` queries when performing vector searches. Without it, the vector search will attempt to return many more matches, resulting in the query costing more RUs and having higher latency than necessary.
 
 Implementing vector search from Python code for a copilot would look similar to:
 
