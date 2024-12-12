@@ -76,7 +76,7 @@ CosmosClientOptions options = new ()
 The **ConsistencyLevel** enumeration has multiple potential values including:
 
 - Bounded Staleness
-- ConsistentPrefix
+- Consistent Prefix
 - Eventual
 - Session
 - Strong
