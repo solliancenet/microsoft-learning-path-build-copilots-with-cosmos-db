@@ -296,7 +296,7 @@ The JavaScript SDK includes other configurable options for **CosmosClient**:
 - **Timeouts**: Set custom timeouts for client operations.
 - **User agent suffix**: Customize the user agent string for telemetry and tracking.
 
-Example showing custom timeout configuration on the :
+Example showing custom timeout configuration on the request:
 
 ```javascript
 const client = new CosmosClient({
