@@ -8,6 +8,7 @@ For this module, we will focus on a fictional container of **products** with the
 | **categoryId** | *String* &vert; *partition key* |
 | **categoryName** | *String* |
 | **sku** | *String* |
+| **name** | *String* |
 | **description** | *String* |
 | **price** | *Number* |
 | **tags** | *Array* &vert; *[ String id, String name ]* |
