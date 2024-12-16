@@ -12,16 +12,17 @@ using Microsoft.Azure.Cosmos;
 
 ## Use the CosmosClient class
 
-The two most common ways to create an instance for the **CosmosClient** class is to instantiate it with one of the following two constructors:
+The three most common ways to create an instance for the **CosmosClient** class is to instantiate it with one of the following three constructors:
 
 - A constructor that takes a single string value representing the connection string for the account.
 - A constructor that takes two string values representing the endpoint and a key for the account.
+- A constructor that takes a string value representing the endpoint and a token credential that enables Microsoft Entra ID authentication.
 
 > [!NOTE]
 > You can always retrieve the connection string, endpoint, or any of the keys from the Azure portal. For the examples in this section, we will use a fictional endpoint of **https­://dp420.documents.azure.com:443/** and a sample key of **fDR2ci9QgkdkvERTQ==**.
 
 > [!TIP]
-> You can also use the CosmosClient class with the Microsoft Identity Platform directly for Microsoft Entra ID authentication, but that is beyond the scope of this module.
+> Using the CosmosClient class with the Microsoft Identity Platform directly for Microsoft Entra ID authentication is considered a best practice. Read the [security guidance for Azure Cosmos DB for NoSQL](https://learn.microsoft.com/azure/cosmos-db/nosql/security/) for more information.
 
 ### Use with a connection string
 
@@ -42,6 +43,20 @@ string endpoint = "https­://dp420.documents.azure.com:443/";
 string key = "fDR2ci9QgkdkvERTQ==";
 
 CosmosClient client = new (endpoint, key);
+```
+
+### Use with an endpoint and token credential
+
+You can also use a constructor of the **CosmosClient** class that takes in an **endpoint** and a **token credential**. This constructor is used when you want to authenticate using Microsoft Entra ID. This example uses the fictional endpoint and a token credential.
+
+```csharp
+DefaultAzureCredential credential = new();
+string endpoint = "https­://dp420.documents.azure.com:443/";
+
+CosmosClient client = new (
+    accountEndpoint: endpoint,
+    tokenCredential: new DefaultAzureCredential()
+);
 ```
 
 ## Read properties of the account
@@ -155,16 +170,17 @@ from azure.cosmos import CosmosClient, PartitionKey, ThroughputProperties, Conta
 
 ## Use the CosmosClient class
 
-The two most common ways to create an instance of the **CosmosClient** class are:
+The three most common ways to create an instance for the **CosmosClient** class is to instantiate it with one of the following three constructors:
 
-- Using a connection string that represents the account.
-- Using an endpoint and a key for the account.
+- A constructor that takes a single string value representing the connection string for the account.
+- A constructor that takes two string values representing the endpoint and a key for the account.
+- A constructor that takes a string value representing the endpoint and a token credential that enables Microsoft Entra ID authentication.
 
 > [!NOTE]
-> You can retrieve the connection string, endpoint, or account keys from the Azure portal. For examples in this section, a fictional endpoint of **https://dp420.documents.azure.com:443/** and a sample key of **fDR2ci9QgkdkvERTQ==** will be used.
+> You can always retrieve the connection string, endpoint, or any of the keys from the Azure portal. For the examples in this section, we will use a fictional endpoint of **https­://dp420.documents.azure.com:443/** and a sample key of **fDR2ci9QgkdkvERTQ==**.
 
 > [!TIP]
-> You can also use the CosmosClient class with the Microsoft Identity Platform for Microsoft Entra ID authentication, but that is beyond the scope of this module.
+> Using the CosmosClient class with the Microsoft Identity Platform directly for Microsoft Entra ID authentication is considered a best practice. Read the [security guidance for Azure Cosmos DB for NoSQL](https://learn.microsoft.com/azure/cosmos-db/nosql/security/) for more information.
 
 ### Use with a connection string
 
@@ -185,6 +201,19 @@ endpoint = "https://dp420.documents.azure.com:443/"
 key = "fDR2ci9QgkdkvERTQ=="
 
 client = CosmosClient(endpoint, key)
+```
+
+### Use with an endpoint and token credential
+
+You can also use a constructor of the **CosmosClient** class that takes in an **endpoint** and a **token credential**. This constructor is used when you want to authenticate using Microsoft Entra ID. This example uses the fictional endpoint and a token credential.
+
+```python
+from azure.identity import DefaultAzureCredential
+
+credential = DefaultAzureCredential()
+endpoint = "https://dp420.documents.azure.com:443/"
+
+client = CosmosClient(url=endpoint, credential=credential)
 ```
 
 ## Read properties of the account
@@ -285,16 +314,17 @@ const { CosmosClient, Database, Container } = require("@azure/cosmos");
 
 ## Use the CosmosClient class
 
-The two most common ways to create an instance of the **CosmosClient** class are:
+The three most common ways to create an instance for the **CosmosClient** class is to instantiate it with one of the following three constructors:
 
-- Using a connection string that represents the account.
-- Using an endpoint and a key for the account.
+- A constructor that takes a single string value representing the connection string for the account.
+- A constructor that takes two string values representing the endpoint and a key for the account.
+- A constructor that takes a string value representing the endpoint and a token credential that enables Microsoft Entra ID authentication.
 
 > [!NOTE]
-> You can retrieve the connection string, endpoint, or account keys from the Azure portal. For examples in this section, a fictional endpoint of **https://dp420.documents.azure.com:443/** and a sample key of **fDR2ci9QgkdkvERTQ==** will be used.
+> You can always retrieve the connection string, endpoint, or any of the keys from the Azure portal. For the examples in this section, we will use a fictional endpoint of **https­://dp420.documents.azure.com:443/** and a sample key of **fDR2ci9QgkdkvERTQ==**.
 
 > [!TIP]
-> You can also use the CosmosClient class with the Microsoft Identity Platform for Microsoft Entra ID authentication, but that is beyond the scope of this module.
+> Using the CosmosClient class with the Microsoft Identity Platform directly for Microsoft Entra ID authentication is considered a best practice. Read the [security guidance for Azure Cosmos DB for NoSQL](https://learn.microsoft.com/azure/cosmos-db/nosql/security/) for more information.
 
 ### Use with a connection string
 
@@ -315,6 +345,19 @@ const endpoint = "https://dp420.documents.azure.com:443/";
 const key = "fDR2ci9QgkdkvERTQ==";
 
 const client = new CosmosClient({ endpoint, key });
+```
+
+### Use with an endpoint and key
+
+You can also use a constructor of the **CosmosClient** class that takes in an **endpoint** and a **token credential**. This constructor is used when you want to authenticate using Microsoft Entra ID. This example uses the fictional endpoint and a token credential.
+
+```javascript
+const { DefaultAzureCredential } = require("@azure/identity");
+
+const credential = new DefaultAzureCredential();
+const endpoint = "https://dp420.documents.azure.com:443/";
+
+const client = new CosmosClient({ endpoint, aadCredentials: credential });
 ```
 
 ## Read properties of the account
