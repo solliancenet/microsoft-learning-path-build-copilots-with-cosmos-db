@@ -3,9 +3,10 @@
 
 To set up the lab environment for this exercise, sign into your Azure subscription and follow these instructions to provision your Azure resources:
 
-- [Create an Azure resource group for the lab.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/python/instructions/00-create-resource-group.html)
+- [Create an Azure resource group for the lab.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/common/instructions/00-create-resource-group.html)
+- [Enable Azure resource providers.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/common/instructions/00-update-resource-providers.html)
+- [Setup Azure Cosmos DB.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/common/instructions/00-setup-cosmos-db.html)
 - [Set up your local lab environment.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/python/instructions/00-setup-lab-environment.html)
-- [Enable Azure resource providers.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/python/instructions/00-update-resource-providers.html)
 
 ## Complete the exercise
 

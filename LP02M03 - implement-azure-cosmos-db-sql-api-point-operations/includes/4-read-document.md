@@ -1,3 +1,7 @@
+There are two ways to read an item from a container in Azure Cosmos DB: a point read and a query read. A point read is the most efficient way to read an item because it uses the unique combination of the **id** and **partition key** of the item to retrieve it. A query read is more flexible and can retrieve multiple items based on a query. This unit focuses on point reads.
+
+For example, if you have a 1 KB document in the container, the RU charge to perform a point read is 1 RU. The RU charge for a query read is based on the number of items returned and the complexity of the query, but the minimum RU charge is typically at least 2.3 RUs. If you just need to read a single item, a point read is the most efficient way to do so because it can read the data directly and does not require the query engine to process the request.
+
 To do a point read of an existing item from the container, we need two things.
 
 ::: zone pivot=".NET"
