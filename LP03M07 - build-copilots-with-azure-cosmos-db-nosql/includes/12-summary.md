@@ -11,6 +11,6 @@ Now that you have completed this module, you can:
 
 For more information about the topics discussed in this module, see:
 
-- [Vector Search in Azure Cosmos DB for NoSQL](https://learn.microsoft.com/azure/cosmos-db/nosql/vector-search)
-- [How to use function calling with Azure OpenAI Service](https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling)
-- [Integrations with large language model (LLM) orchestrators](https://learn.microsoft.com/azure/cosmos-db/gen-ai/integrations)
+- [Vector Search in Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/vector-search)
+- [How to use function calling with Azure OpenAI Service](/azure/ai-services/openai/how-to/function-calling)
+- [Integrations with large language model (LLM) orchestrators](/azure/cosmos-db/gen-ai/integrations)

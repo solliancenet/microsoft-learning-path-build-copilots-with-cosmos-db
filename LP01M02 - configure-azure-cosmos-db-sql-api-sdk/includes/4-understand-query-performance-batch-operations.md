@@ -98,7 +98,7 @@ Many request timeouts occur due to high CPU or resource utilization on client ma
 
 ## Use asynchronous queries
 
-The Azure Cosmos DB Python SDK supports asynchronous operations through Python's `asyncio` framework and provides classes for asynchronous programming under the [``azure.cosmos.aio``](https://learn.microsoft.com/python/api/azure-cosmos/azure.cosmos.aio) namespace. For example, you can use the `query_items` method asynchronously:
+The Azure Cosmos DB Python SDK supports asynchronous operations through Python's `asyncio` framework and provides classes for asynchronous programming under the [``azure.cosmos.aio``](/python/api/azure-cosmos/azure.cosmos.aio) namespace. For example, you can use the `query_items` method asynchronously:
 
 ```python
 from azure.cosmos.aio import CosmosClient

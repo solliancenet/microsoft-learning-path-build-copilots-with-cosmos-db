@@ -9,7 +9,7 @@ The emulator is available to run in **Windows**, **Linux**, or as a **Docker** c
 The emulator is available as a download from the [**Microsoft Learn** website](https://docs.microsoft.com/azure/cosmos-db/local-emulator) and supports various APIs depending on the platform. The NoSQL API is universally supported across all platforms.
 
 > [!TIP]
-> You may optionally install the [new Linux-based Azure Cosmos DB Emulator (in preview)](https://learn.microsoft.com/azure/cosmos-db/emulator-linux), which is available as a Docker container. It supports running on a wide variety of processors and operating systems.
+> You may optionally install the [new Linux-based Azure Cosmos DB Emulator (in preview)](/azure/cosmos-db/emulator-linux), which is available as a Docker container. It supports running on a wide variety of processors and operating systems.
 
 The Docker container image for the emulator is published to the Microsoft Container Registry and is syndicated across various container registries such as **Docker Hub**. To obtain the Docker container image from Docker Hub, use the Docker CLI to **pull** the image from ``mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator``.
 
@@ -98,7 +98,7 @@ const client = new CosmosClient({ endpoint, key });
 ```
 
 > [!WARNING]
-> If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](https://learn.microsoft.com/azure/cosmos-db/how-to-develop-emulator?tabs=windows%2Cjavascript&pivots=api-nosql#import-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
+> If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](/azure/cosmos-db/how-to-develop-emulator?tabs=windows%2Cjavascript&pivots=api-nosql#import-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
 >
 >
 > ```javascript
