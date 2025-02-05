@@ -13,4 +13,4 @@ azureSandbox: false
 labModal: false
 durationInMinutes: 7
 content: |
-  [!include[](includes/7-5-configure-connectivity-mode.md)]
+  [!include[](includes/6-configure-connectivity-mode.md)]
