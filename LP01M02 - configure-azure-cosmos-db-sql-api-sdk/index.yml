@@ -32,7 +32,7 @@ units:
 - learn.wwl.configure-azure-cosmos-db-sql-api-sdk.introduction
 - learn.wwl.configure-azure-cosmos-db-sql-api-sdk.enable-offline-development
 - learn.wwl.configure-azure-cosmos-db-sql-api-sdk.handle-connection-errors
-- learn.wwl.configure-azure-cosmos-db-sql-api-sdk.understand-query-performance-batch-operations
+- learn.wwl.configure-azure-cosmos-db-sql-api-sdk.implement-threading-parallelism
 - learn.wwl.configure-azure-cosmos-db-sql-api-sdk.configure-logging
 - learn.wwl.configure-azure-cosmos-db-sql-api-sdk.exercise-for-offline-development
 - learn.wwl.configure-azure-cosmos-db-sql-api-sdk.knowledge-check
