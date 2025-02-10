@@ -1,3 +1,5 @@
+### Set up environment
+
 > [!NOTE]
 > To complete this exercise, you will need a [Microsoft Azure subscription](https://azure.microsoft.com/free) in which you have administrative access.
 
