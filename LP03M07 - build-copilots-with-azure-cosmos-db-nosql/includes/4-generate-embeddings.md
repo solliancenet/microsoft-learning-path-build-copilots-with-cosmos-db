@@ -4,7 +4,7 @@ An embedding is a data representation format that machine learning models and al
 
 ## Generate embeddings with Azure OpenAI
 
-Azure OpenAI is a cutting-edge service that integrates OpenAI's advanced language models with Microsoft's Azure platform, providing a secure and scalable environment for developers. This powerful combination enables the creation of intelligent applications that can understand and generate human-like text, essential for tasks like natural language processing, text summarization, and sentiment analysis. A fundamental application of Azure OpenAI is building sophisticated virtual assistants, or copilots, capable of handling complex queries, offering personalized responses, and seamlessly integrating with other services. By leveraging an embedding model, developers can generate vector representations of textual data and store them in a vector store like Azure Cosmos DB for NoSQL. This approach facilitates efficient and accurate similarity searches, significantly enhancing the copilot's ability to retrieve relevant information and provide contextually rich interactions.
+Azure OpenAI is a cutting-edge service that integrates OpenAI's advanced language models with Microsoft's Azure platform, providing a secure and scalable environment for developers. This powerful combination enables the creation of intelligent applications that can understand and generate human-like text, essential for tasks like natural language processing, text summarization, and sentiment analysis. A fundamental application of Azure OpenAI is building sophisticated virtual assistants, or Generative AI applications, capable of handling complex queries, offering personalized responses, and seamlessly integrating with other services. By leveraging an embedding model, developers can generate vector representations of textual data and store them in a vector store like Azure Cosmos DB for NoSQL. This approach facilitates efficient and accurate similarity searches, significantly enhancing the Generative AI application's ability to retrieve relevant information and provide contextually rich interactions.
 
 ![Diagram of using an embedding model to generate vectors and store them in Azure Cosmos DB for NoSQL.](../media/vector-embedding-storage-with-azure-cosmos-db-nosql.png)
 
@@ -30,7 +30,7 @@ client = AzureOpenAI(
 
 # Generate embeddings for input text
 response = client.embeddings.create(
-    input = "Build copilots with Python and Azure Cosmos DB for NoSQL",
+    input = "Build Generative AI applications with Python and Azure Cosmos DB for NoSQL",
     model = "text-embedding-3-large"
 )
 

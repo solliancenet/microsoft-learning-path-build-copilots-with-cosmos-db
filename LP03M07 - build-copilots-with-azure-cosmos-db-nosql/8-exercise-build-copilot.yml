@@ -1,9 +1,9 @@
 ### YamlMime:ModuleUnit
 uid: learn.wwl.build-copilots-with-azure-cosmos-db-nosql.exercise-build-copilot
-title: Exercise - Build a copilot with Python and Azure Cosmos DB for NoSQL
+title: Exercise - Build a Generative AI application with Python and Azure Cosmos DB for NoSQL
 metadata:
-  title: Exercise - Build a copilot with Python and Azure Cosmos DB for NoSQL
-  description: "Exercise: Build a copilot with Python and Azure Cosmos DB for NoSQL."
+  title: Exercise - Build a Generative AI application with Python and Azure Cosmos DB for NoSQL
+  description: "Exercise: Build a Generative AI application with Python and Azure Cosmos DB for NoSQL."
   ms.date: 11/27/2024
   author: wwlpublish
   ms.author: calopez

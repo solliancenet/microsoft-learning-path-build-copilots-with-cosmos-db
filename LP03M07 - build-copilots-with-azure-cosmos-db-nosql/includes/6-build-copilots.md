@@ -1,4 +1,4 @@
-AI copilots, the next generation of intelligent assistants, are redefining productivity by providing context-aware support, enhancing decision-making processes, and automating complex workflows. With Azure Cosmos DB for NoSQL Python vector search, developers can build advanced AI copilots that deliver precise and efficient solutions by integrating the power of Python and its vast assortment of libraries and tools. Python's versatility in data manipulation integrated with the robust vector search capabilities of Azure Cosmos DB allows copilots to handle complex data queries and provide real-time insights efficiently. Additionally, vector search plays a crucial role when implementing a Retrieval-Augmented Generation (RAG) pattern. It enables the AI to retrieve the most relevant documents from a vast corpus based on similarity to the input query, thus enhancing the generation of accurate and contextually relevant responses. This synergy allows users to focus on strategic tasks while the AI copilots manage the heavy lifting of data processing and analysis.
+Generative AI applications, the next generation of intelligent assistants, are redefining productivity by providing context-aware support, enhancing decision-making processes, and automating complex workflows. With Azure Cosmos DB for NoSQL Python vector search, developers can build advanced Generative AI applications that deliver precise and efficient solutions by integrating the power of Python and its vast assortment of libraries and tools. Python's versatility in data manipulation integrated with the robust vector search capabilities of Azure Cosmos DB allows Generative AI applications to handle complex data queries and provide real-time insights efficiently. Additionally, vector search plays a crucial role when implementing a Retrieval-Augmented Generation (RAG) pattern. It enables the AI to retrieve the most relevant documents from a vast corpus based on similarity to the input query, thus enhancing the generation of accurate and contextually relevant responses. This synergy allows users to focus on strategic tasks while the AI Generative AI applications manage the heavy lifting of data processing and analysis.
 
 ## Configure a Python virtual environment
 
@@ -65,27 +65,27 @@ client = AzureOpenAI(
 
 The `token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")` line above creates a token provider using the `DefaultAzureCredential` and the Azure Cognitive Services scope URL. `DefaultAzureCredential` handles the authentication process, and the `get_bearer_token_provider` utility function returns a token provider that obtains access tokens for Azure services. The `AzureOpenAI` client then uses the created `token_provider` to authenticate requests to the Azure OpenAI service using Microsoft Entra ID RBAC.
 
-## Copilot architecture
+## Generative AI application architecture
 
-The architecture of using separate frontend and backend layers provides significant extensibility, allowing for the seamless integration of additional functionalities over time. Once the initial copilot is developed, incorporating new features, such as LangChain orchestration, into the APIs becomes straightforward.
+The architecture of using separate frontend and backend layers provides significant extensibility, allowing for the seamless integration of additional functionalities over time. Once the initial Generative AI application is developed, incorporating new features, such as LangChain orchestration, into the APIs becomes straightforward.
 
-![A high-level copilot architecture diagram, showing a UI developed in Python using Streamlit, a backend API written in Python, and interactions with Azure Cosmos DB and Azure OpenAI.](../media/copilot-high-level-architecture-diagram.png)
+![A high-level Generative AI application architecture diagram, showing a UI developed in Python using Streamlit, a backend API written in Python, and interactions with Azure Cosmos DB and Azure OpenAI.](../media/copilot-high-level-architecture-diagram.png)
 
-This modular design enables developers to enhance the backend with advanced capabilities without disrupting the existing front end. For instance, LangChain can be added to handle complex workflows and chain multiple tasks, boosting the copilot's functionality. This flexibility ensures the system remains scalable and adaptable, ready to incorporate future advancements and efficiently meet evolving user needs.
+This modular design enables developers to enhance the backend with advanced capabilities without disrupting the existing front end. For instance, LangChain can be added to handle complex workflows and chain multiple tasks, boosting the Generative AI application's functionality. This flexibility ensures the system remains scalable and adaptable, ready to incorporate future advancements and efficiently meet evolving user needs.
 
 ## Create a UI with Streamlit
 
-Streamlit is a powerful open-source Python library that enables rapid development of interactive web applications, making it an ideal choice for building a copilot's user interface. With its intuitive API, developers can quickly create dynamic, responsive chat interfaces that facilitate real-time interactions. Streamlit's built-in support for various widgets and its seamless integration with popular data visualization tools allow for the easy incorporation of chat functionality, enabling users to communicate with the copilot efficiently. By leveraging Streamlit, you can streamline the process of constructing a user-friendly and engaging interface, ensuring a smooth and productive experience for users interacting with your AI copilot.
+Streamlit is a powerful open-source Python library that enables rapid development of interactive web applications, making it an ideal choice for building a Generative AI application's user interface. With its intuitive API, developers can quickly create dynamic, responsive chat interfaces that facilitate real-time interactions. Streamlit's built-in support for various widgets and its seamless integration with popular data visualization tools allow for the easy incorporation of chat functionality, enabling users to communicate with the Generative AI application efficiently. By leveraging Streamlit, you can streamline the process of constructing a user-friendly and engaging interface, ensuring a smooth and productive experience for users interacting with your Generative AI application.
 
 ```python
-# Create a copilot UI with Streamlit
+# Create a Generative AI application UI with Streamlit
 import streamlit as st
 import requests
 
-st.set_page_config(page_title="Cosmic Works Copilot", layout="wide")
+st.set_page_config(page_title="Cosmic Works Generative AI application", layout="wide")
 
 def send_message_to_copilot(message: str, chat_history: list = []) -> str:
-    """Send a message to the Copilot chat endpoint."""
+    """Send a message to the Generative AI application chat endpoint."""
     try:
         api_endpoint = "http://localhost:8000"
         request = {"message": message, "chat_history": chat_history}
@@ -97,15 +97,15 @@ def send_message_to_copilot(message: str, chat_history: list = []) -> str:
         return ""
 
 def main():
-    """Main function for the Cosmic Works Product Management Copilot UI."""
+    """Main function for the Cosmic Works Product Management Generative AI application UI."""
 
     st.write(
         """
-        # Cosmic Works Product Management Copilot
+        # Cosmic Works Product Management Generative AI application
     
-        Welcome to Cosmic Works Product Management Copilot, a tool for managing and finding bicycle-related products in the Cosmic Works system.
+        Welcome to Cosmic Works Product Management Generative AI application, a tool for managing and finding bicycle-related products in the Cosmic Works system.
     
-        **Ask the copilot to apply or remove a discount on a category of products or to find products.**
+        **Ask the Generative AI application to apply or remove a discount on a category of products or to find products.**
         """
     )
 
@@ -119,12 +119,12 @@ def main():
 
     # React to user input
     if prompt := st.chat_input("What can I help you with today?"):
-        with st.spinner("Awaiting the Copilot's response to your question..."):
+        with st.spinner("Awaiting the Generative AI application's response to your question..."):
             # Display user message in chat message container
             with st.chat_message("user"):
                 st.markdown(prompt)
             
-            # Send user message to Copilot and get response
+            # Send user message to Generative AI application and get response
             response = send_message_to_copilot(prompt, st.session_state.messages)            
 
             # Display assistant response in chat message container
@@ -138,7 +138,7 @@ def main():
 
 ## Build a backend API with Python and FastAPI
 
-FastAPI is a modern framework for developing APIs with Python, which is particularly well-suited for creating robust backend APIs. When designing a copilot UI with Streamlit, FastAPI can serve as the powerful backend engine for handling interactions with Azure services like Azure OpenAI and Cosmos DB. Using FastAPI's efficient request handling, you can quickly build endpoints that enable communication between the Streamlit front end and Azure's services. This setup ensures that user queries to the copilot are processed smoothly, allowing real-time responses and efficient data management. FastAPI's simplicity and high performance make it an excellent choice for building the backend infrastructure needed to support advanced AI-driven copilots.
+FastAPI is a modern framework for developing APIs with Python, which is particularly well-suited for creating robust backend APIs. When designing a Generative AI application UI with Streamlit, FastAPI can serve as the powerful backend engine for handling interactions with Azure services like Azure OpenAI and Cosmos DB. Using FastAPI's efficient request handling, you can quickly build endpoints that enable communication between the Streamlit front end and Azure's services. This setup ensures that user queries to the Generative AI application are processed smoothly, allowing real-time responses and efficient data management. FastAPI's simplicity and high performance make it an excellent choice for building the backend infrastructure needed to support advanced Generative AI applications.
 
 ```python
 from fastapi import FastAPI
@@ -312,18 +312,18 @@ final_response = aoai_client.chat.completions.create(
 print(final_response.choices[0].message.content)
 ```
 
-## Use prompt engineering to provide a persona to your copilot
+## Use prompt engineering to provide a persona to your Generative AI application
 
 Prompt engineering is a crucial technique in artificial intelligence and natural language processing. It guides AI models in generating desired outputs by crafting specific, well-structured inputs (prompts) that steer the AI's responses toward achieving accurate and relevant results.
 
 Effective prompt engineering requires understanding the AI model's capabilities and limitations, as well as the nuances of language. By providing clear instructions, context, and examples within the prompt, developers can influence the AI to produce high-quality content, solve complex problems, or perform specific tasks. This approach enhances the AI's ability to comprehend and respond to various queries, making interactions more useful and engaging.
 
-When building a copilot, prompt engineering enables you to define a "persona" for your assistant. The persona instructs the LLM about interacting with copilot users, describing how to handle inputs and create outputs. Creating a persona is accomplished using a system prompt that you add to the collection of messages used by the Azure OpenAI client and the underlying language model.
+When building a Generative AI application, prompt engineering enables you to define a "persona" for your assistant. The persona instructs the LLM about interacting with Generative AI application users, describing how to handle inputs and create outputs. Creating a persona is accomplished using a system prompt that you add to the collection of messages used by the Azure OpenAI client and the underlying language model.
 
 ```python
 # Define the system prompt that contains the assistant's persona.
 system_prompt = """
-You are an intelligent copilot for Cosmic Works designed to help users manage and find bicycle-related products.
+You are an intelligent Generative AI application for Cosmic Works designed to help users manage and find bicycle-related products.
 You are helpful, friendly, and knowledgeable, but can only answer questions about Cosmic Works products.
 If asked to apply a discount:
     - Apply the specified discount to all products in the specified category. If the user did not provide you with a discount percentage and a product category, prompt them for the details you need to apply a discount.
@@ -334,6 +334,6 @@ When asked to provide a list of products, you should:
     - Provide at least 3 candidate products unless the user asks for more or less, then use that number. Always include each product's name, description, price, and SKU. If the product has a discount, include it as a percentage and the associated sale price.
 """
 
-# Provide the copilot with a persona using the system prompt.
+# Provide the Generative AI application with a persona using the system prompt.
 messages = [{ "role": "system", "content": system_prompt }]
 ```

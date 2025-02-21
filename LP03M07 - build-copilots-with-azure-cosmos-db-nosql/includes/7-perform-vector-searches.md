@@ -1,4 +1,4 @@
-Integrating the vector search capabilities of Azure Cosmos DB for NoSQL into a Python-based copilot significantly enhances the copilot's ability to perform similarity searches efficiently. Vector search allows retrieving semantically similar items based on vector embeddings, making it ideal for copilots' natural language processing tasks. By leveraging vector search, a copilot can quickly find and retrieve relevant information from large datasets, enriching its responses with accurate and contextually relevant data. This capability enhances the user experience by providing more precise and meaningful assistance, ultimately making the copilot more intelligent and effective.
+Integrating the vector search capabilities of Azure Cosmos DB for NoSQL into a Python-based Generative AI application significantly enhances the Generative AI application's ability to perform similarity searches efficiently. Vector search allows retrieving semantically similar items based on vector embeddings, making it ideal for Generative AI application' natural language processing tasks. By leveraging vector search, a Generative AI application can quickly find and retrieve relevant information from large datasets, enriching its responses with accurate and contextually relevant data. This capability enhances the user experience by providing more precise and meaningful assistance, ultimately making the Generative AI application more intelligent and effective.
 
 ## What is vector search?
 
@@ -6,7 +6,7 @@ Vector search is a technique that allows items to be found based on their data c
 
 ![Flow diagram for performing vector search, showing an incoming message being vectorized and compared against a vector store, then being added to an LLM prompt for the generation of a completion response.](vector-search.png)
 
-It plays a critical role in the implementation of the retrieval augmented generation (RAG) pattern frequently used by AI copilots by enabling secure and efficient integration of proprietary data into large language model (LLM) responses, ensuring that AI copilots can provide precise, domain-specific answers while maintaining the confidentiality and integrity of sensitive information.
+It plays a critical role in the implementation of the retrieval augmented generation (RAG) pattern frequently used by Generative AI applications by enabling secure and efficient integration of proprietary data into large language model (LLM) responses, ensuring that Generative AI applications can provide precise, domain-specific answers while maintaining the confidentiality and integrity of sensitive information.
 
 ## Understand the steps involved in vector search
 
@@ -35,7 +35,7 @@ The above example shows a NoSQL query that projects the similarity score as the 
 
 > &#10071; You should always use a `TOP N` clause in `SELECT` queries when performing vector searches. Without it, the vector search will attempt to return many more matches, resulting in the query costing more RUs and having higher latency than necessary.
 
-Implementing vector search from Python code for a copilot would look similar to:
+Implementing vector search from Python code for a Generative AI application would look similar to:
 
 ```python
 # Create a Cosmos DB client

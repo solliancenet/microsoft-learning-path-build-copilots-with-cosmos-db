@@ -1,21 +1,21 @@
 ### YamlMime:Module
 uid: learn.wwl.build-copilots-with-azure-cosmos-db-nosql
 metadata:
-  title: Build copilots with Python and Azure Cosmos DB for NoSQL
+  title: Build Generative AI applications with Azure Cosmos DB
   description: "Create SQL queries for Azure Cosmos DB for NoSQL that uses subqueries or cross-products."
   ms.date: 10/18/2022
   author: wwlpublish
   ms.author: calopez
   ms.topic: module-standard-task-based
   ms.service: azure-cosmos-db
-title: Build copilots with Python and Azure Cosmos DB for NoSQL
-summary: Build advanced AI copilots with Python and Azure Cosmos DB for NoSQL.
+title: Build Generative AI applications with Azure Cosmos DB
+summary: Build advanced Generative AI application with Python and Azure Cosmos DB for NoSQL.
 abstract: |
   After completing this module, you'll be able to:
-  - Build a copilot capable of interacting with private data using Python and Azure Cosmos DB for NoSQL.
+  - Build a Generative AI application capable of interacting with private data using Python and Azure Cosmos DB for NoSQL.
   - Efficiently retrieve and store vectors in Azure Cosmos DB for NoSQL.
   - Perform similarity searches using Azure Cosmos DB for NoSQL.
-  - Integrate data and AI models using LangChain orchestration to create intelligent and adaptable copilots.
+  - Integrate data and AI models using LangChain orchestration to create intelligent and adaptable Generative AI application.
 prerequisites: |
   Before starting this module, you should have a basic understanding of Python development, Azure Cosmos DB for NoSQL, working with AI models, and understand the concepts associated with retrieval augmented generated (RAG) patterns.
 iconUrl: /training/achievements/azure-cosmos-db-build-copilots.svg
