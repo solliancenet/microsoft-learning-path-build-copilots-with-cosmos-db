@@ -19,24 +19,24 @@ Launch the exercise and follow the instructions.
 
 ::: zone pivot="Python"
 
-- **[Set up your local lab environment.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/python/instructions/00-setup-lab-environment.html)**
+- **[Set up your local lab environment.](https://go.microsoft.com/fwlink/?linkid=2304766)**
 
 ## Complete the exercise
 
 Launch the exercise and follow the instructions.
 
-[![Button to launch exercise.](../media/launch-exercise.png)](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/python/instructions/02-sdk-offline.html)
+[![Button to launch exercise.](../media/launch-exercise.png)](https://go.microsoft.com/fwlink/?linkid=2304723)
 
 ::: zone-end
 
 ::: zone pivot="JavaScript"
 
-- **[Set up your local lab environment.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/javascript/instructions/00-setup-lab-environment.html)**
+- **[Set up your local lab environment.](https://go.microsoft.com/fwlink/?linkid=2305064)**
 
 ## Complete the exercise
 
 Launch the exercise and follow the instructions.
 
-[![Button to launch exercise.](../media/launch-exercise.png)](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/javascript/instructions/02-sdk-offline.html)
+[![Button to launch exercise.](../media/launch-exercise.png)](https://go.microsoft.com/fwlink/?linkid=2303893)
 
 ::: zone-end

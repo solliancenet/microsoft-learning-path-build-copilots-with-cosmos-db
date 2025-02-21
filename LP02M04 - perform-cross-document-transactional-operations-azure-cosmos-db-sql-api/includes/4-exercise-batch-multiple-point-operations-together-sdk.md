@@ -21,30 +21,30 @@ Launch the exercise and follow the instructions.
 
 ::: zone pivot="Python"
 
-- **[Create an Azure resource group for the lab.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/common/instructions/00-create-resource-group.html)**
-- **[Enable Azure resource providers.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/common/instructions/00-update-resource-providers.html)**
-- **[Setup Azure Cosmos DB.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/common/instructions/00-setup-cosmos-db.html)**
-- **[Set up your local lab environment.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/python/instructions/00-setup-lab-environment.html)**
+- **[Create an Azure resource group for the lab.](https://go.microsoft.com/fwlink/?linkid=2306120)**
+- **[Enable Azure resource providers.](https://go.microsoft.com/fwlink/?linkid=2304765)**
+- **[Setup Azure Cosmos DB.](https://go.microsoft.com/fwlink/?linkid=2305063)**
+- **[Set up your local lab environment.](https://go.microsoft.com/fwlink/?linkid=2304766)**
 
 ## Complete the exercise
 
 Launch the exercise and follow the instructions.
 
-[![Button to launch exercise.](../media/launch-exercise.png)](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/python/instructions/04-sdk-batch.html)
+[![Button to launch exercise.](../media/launch-exercise.png)](https://go.microsoft.com/fwlink/?linkid=2304725)
 
 ::: zone-end
 
 ::: zone pivot="JavaScript"
 
-- **[Create an Azure resource group for the lab.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/common/instructions/00-create-resource-group.html)**
-- **[Enable Azure resource providers.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/common/instructions/00-update-resource-providers.html)**
-- **[Setup Azure Cosmos DB.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/common/instructions/00-setup-cosmos-db.html)**
-- **[Set up your local lab environment.](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/javascript/instructions/00-setup-lab-environment.html)**
+- **[Create an Azure resource group for the lab.](https://go.microsoft.com/fwlink/?linkid=2306120)**
+- **[Enable Azure resource providers.](https://go.microsoft.com/fwlink/?linkid=2304765)**
+- **[Setup Azure Cosmos DB.](https://go.microsoft.com/fwlink/?linkid=2305063)**
+- **[Set up your local lab environment.](https://go.microsoft.com/fwlink/?linkid=2305064)**
 
 ## Complete the exercise
 
 Launch the exercise and follow the instructions.
 
-[![Button to launch exercise.](../media/launch-exercise.png)](https://solliancenet.github.io/microsoft-learning-path-build-copilots-with-cosmos-db-labs/javascript/instructions/04-sdk-batch.html)
+[![Button to launch exercise.](../media/launch-exercise.png)](https://go.microsoft.com/fwlink/?linkid=2303894)
 
 ::: zone-end
